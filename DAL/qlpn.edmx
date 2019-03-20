@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qlpn_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="code_mst">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_id" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="255" />
+          <Property Name="comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="sort_order" Type="int" />
+        </EntityType>
+        <EntityType Name="division_mst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ma_trai" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="ten_trai" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="prison_mst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ma_dang_ky" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="ma_trai_giam" Type="varchar" MaxLength="16" />
+          <Property Name="ngay_thang_nam_sinh" Type="datetime" />
+          <Property Name="ho_va_ten" Type="nvarchar" MaxLength="255" />
+          <Property Name="ten_goi_khac" Type="nvarchar" MaxLength="255" />
+          <Property Name="gioi_tinh" Type="char" MaxLength="2" />
+          <Property Name="que_quan" Type="nvarchar" MaxLength="255" />
+          <Property Name="noi_dktt" Type="nvarchar" MaxLength="255" />
+          <Property Name="toi_danh" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngay_bat" Type="datetime" />
+          <Property Name="an_phat" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngay_nhap_trai" Type="datetime" />
+          <Property Name="phan_loai_quan_che" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngay_dua_vao_dien_quan_che" Type="datetime" />
+          <Property Name="doi_hien_tai" Type="nvarchar" MaxLength="255" />
+          <Property Name="buong_so" Type="nvarchar" MaxLength="255" />
+          <Property Name="khu" Type="nvarchar" MaxLength="255" />
+          <Property Name="phan_trai" Type="nvarchar" MaxLength="255" />
+          <Property Name="danh_muc" Type="char" MaxLength="2" />
+          <Property Name="danh_muc_1" Type="char" MaxLength="2" />
+          <Property Name="pham_vi_hoat_dong" Type="nvarchar" MaxLength="255" />
+          <Property Name="bieu_hien_hoat_dong_hien_hanh" Type="nvarchar" MaxLength="255" />
+          <Property Name="bien_phap_nghiep_vu" Type="char" MaxLength="2" />
+          <Property Name="bien_phap_ky_luat" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngay_dua_ra" Type="datetime" />
+          <Property Name="ly_do_dua_ra" Type="nvarchar" MaxLength="255" />
+          <Property Name="ton_giao" Type="char" MaxLength="2" />
+          <Property Name="dan_toc" Type="char" MaxLength="2" />
+          <Property Name="quoc_tich" Type="char" MaxLength="3" />
+          <Property Name="trinh_do_hoc_van" Type="char" MaxLength="2" />
+          <Property Name="ngoai_ngu" Type="char" MaxLength="2" />
+          <Property Name="ten_cha" Type="nvarchar" MaxLength="255" />
+          <Property Name="ten_me" Type="nvarchar" MaxLength="255" />
+          <Property Name="ten_vo_chong" Type="nvarchar" MaxLength="255" />
+          <Property Name="tien_an" Type="nvarchar" MaxLength="255" />
+          <Property Name="tien_su" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngay_tao" Type="datetime" />
+          <Property Name="nguoi_tao" Type="varchar" MaxLength="16" />
+          <Property Name="ngay_cap_nhat" Type="datetime" />
+          <Property Name="nguoi_cap_nhat" Type="varchar" MaxLength="16" />
+          <Property Name="tom_tat_toi_danh" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="qlpn_dbModelStoreContainer">
+          <EntitySet Name="division_mst" EntityType="Self.division_mst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prison_mst" EntityType="Self.prison_mst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_mst" EntityType="Self.code_mst" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [code_mst].[id] AS [id], 
+    [code_mst].[category_id] AS [category_id], 
+    [code_mst].[code] AS [code], 
+    [code_mst].[value] AS [value], 
+    [code_mst].[comment] AS [comment], 
+    [code_mst].[sort_order] AS [sort_order]
+    FROM [dbo].[code_mst] AS [code_mst]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qlpn_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="division_mst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ma_trai" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ten_trai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="prison_mst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ma_dang_ky" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ma_trai_giam" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ngay_thang_nam_sinh" Type="DateTime" Precision="3" />
+          <Property Name="ho_va_ten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ten_goi_khac" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="gioi_tinh" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="que_quan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="noi_dktt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="toi_danh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngay_bat" Type="DateTime" Precision="3" />
+          <Property Name="an_phat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngay_nhap_trai" Type="DateTime" Precision="3" />
+          <Property Name="phan_loai_quan_che" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngay_dua_vao_dien_quan_che" Type="DateTime" Precision="3" />
+          <Property Name="doi_hien_tai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="buong_so" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="khu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="phan_trai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="danh_muc" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="danh_muc_1" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="pham_vi_hoat_dong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="bieu_hien_hoat_dong_hien_hanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="bien_phap_nghiep_vu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="bien_phap_ky_luat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngay_dua_ra" Type="DateTime" Precision="3" />
+          <Property Name="ly_do_dua_ra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ton_giao" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="dan_toc" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="quoc_tich" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="trinh_do_hoc_van" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ngoai_ngu" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ten_cha" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ten_me" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ten_vo_chong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tien_an" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tien_su" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngay_tao" Type="DateTime" Precision="3" />
+          <Property Name="nguoi_tao" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ngay_cap_nhat" Type="DateTime" Precision="3" />
+          <Property Name="nguoi_cap_nhat" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="tom_tat_toi_danh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="code_mst">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_id" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sort_order" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="division_mst" EntityType="Self.division_mst" />
+          <EntitySet Name="prison_mst" EntityType="Self.prison_mst" />
+          <EntitySet Name="code_mst" EntityType="Self.code_mst" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qlpn_dbModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="division_mst">
+            <EntityTypeMapping TypeName="qlpn_dbModel.division_mst">
+              <MappingFragment StoreEntitySet="division_mst">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ma_trai" ColumnName="ma_trai" />
+                <ScalarProperty Name="ten_trai" ColumnName="ten_trai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prison_mst">
+            <EntityTypeMapping TypeName="qlpn_dbModel.prison_mst">
+              <MappingFragment StoreEntitySet="prison_mst">
+                <ScalarProperty Name="tom_tat_toi_danh" ColumnName="tom_tat_toi_danh" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ma_dang_ky" ColumnName="ma_dang_ky" />
+                <ScalarProperty Name="ma_trai_giam" ColumnName="ma_trai_giam" />
+                <ScalarProperty Name="ngay_thang_nam_sinh" ColumnName="ngay_thang_nam_sinh" />
+                <ScalarProperty Name="ho_va_ten" ColumnName="ho_va_ten" />
+                <ScalarProperty Name="ten_goi_khac" ColumnName="ten_goi_khac" />
+                <ScalarProperty Name="gioi_tinh" ColumnName="gioi_tinh" />
+                <ScalarProperty Name="que_quan" ColumnName="que_quan" />
+                <ScalarProperty Name="noi_dktt" ColumnName="noi_dktt" />
+                <ScalarProperty Name="toi_danh" ColumnName="toi_danh" />
+                <ScalarProperty Name="ngay_bat" ColumnName="ngay_bat" />
+                <ScalarProperty Name="an_phat" ColumnName="an_phat" />
+                <ScalarProperty Name="ngay_nhap_trai" ColumnName="ngay_nhap_trai" />
+                <ScalarProperty Name="phan_loai_quan_che" ColumnName="phan_loai_quan_che" />
+                <ScalarProperty Name="ngay_dua_vao_dien_quan_che" ColumnName="ngay_dua_vao_dien_quan_che" />
+                <ScalarProperty Name="doi_hien_tai" ColumnName="doi_hien_tai" />
+                <ScalarProperty Name="buong_so" ColumnName="buong_so" />
+                <ScalarProperty Name="khu" ColumnName="khu" />
+                <ScalarProperty Name="phan_trai" ColumnName="phan_trai" />
+                <ScalarProperty Name="danh_muc" ColumnName="danh_muc" />
+                <ScalarProperty Name="danh_muc_1" ColumnName="danh_muc_1" />
+                <ScalarProperty Name="pham_vi_hoat_dong" ColumnName="pham_vi_hoat_dong" />
+                <ScalarProperty Name="bieu_hien_hoat_dong_hien_hanh" ColumnName="bieu_hien_hoat_dong_hien_hanh" />
+                <ScalarProperty Name="bien_phap_nghiep_vu" ColumnName="bien_phap_nghiep_vu" />
+                <ScalarProperty Name="bien_phap_ky_luat" ColumnName="bien_phap_ky_luat" />
+                <ScalarProperty Name="ngay_dua_ra" ColumnName="ngay_dua_ra" />
+                <ScalarProperty Name="ly_do_dua_ra" ColumnName="ly_do_dua_ra" />
+                <ScalarProperty Name="ton_giao" ColumnName="ton_giao" />
+                <ScalarProperty Name="dan_toc" ColumnName="dan_toc" />
+                <ScalarProperty Name="quoc_tich" ColumnName="quoc_tich" />
+                <ScalarProperty Name="trinh_do_hoc_van" ColumnName="trinh_do_hoc_van" />
+                <ScalarProperty Name="ngoai_ngu" ColumnName="ngoai_ngu" />
+                <ScalarProperty Name="ten_cha" ColumnName="ten_cha" />
+                <ScalarProperty Name="ten_me" ColumnName="ten_me" />
+                <ScalarProperty Name="ten_vo_chong" ColumnName="ten_vo_chong" />
+                <ScalarProperty Name="tien_an" ColumnName="tien_an" />
+                <ScalarProperty Name="tien_su" ColumnName="tien_su" />
+                <ScalarProperty Name="ngay_tao" ColumnName="ngay_tao" />
+                <ScalarProperty Name="nguoi_tao" ColumnName="nguoi_tao" />
+                <ScalarProperty Name="ngay_cap_nhat" ColumnName="ngay_cap_nhat" />
+                <ScalarProperty Name="nguoi_cap_nhat" ColumnName="nguoi_cap_nhat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_mst">
+            <EntityTypeMapping TypeName="qlpn_dbModel.code_mst">
+              <MappingFragment StoreEntitySet="code_mst">
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

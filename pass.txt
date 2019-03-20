@@ -1,0 +1,4 @@
+SQL
+sa/qlpn2019
+MSSQLSERVER
+Collation Vietnamese_CI_SA
