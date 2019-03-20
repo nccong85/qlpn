@@ -24,22 +24,22 @@ namespace Business.Repository
         public void Add(prison_mst addObj)
         {
             _dbcontext.prison_mst.Add(addObj);
-            _dbcontext.SaveChanges();
+            this.Save();
         }
 
         public void Update(prison_mst updObj)
         {
             _dbcontext.prison_mst.Attach(updObj);
             _dbcontext.Entry(updObj).State = System.Data.Entity.EntityState.Modified;
-            _dbcontext.SaveChanges();
+            this.Save();
         }
 
         public void Delete(string ma_dang_ky)
         {
-            var x = new prison_mst { ma_dang_ky = ma_dang_ky };
+            var x = this.GetPrisonById(ma_dang_ky);
             _dbcontext.prison_mst.Attach(x);
             _dbcontext.prison_mst.Remove(x);
-            _dbcontext.SaveChanges();
+            this.Save();
         }
 
         public prison_mst GetPrisonById(string ma_dang_ky)
@@ -68,6 +68,29 @@ namespace Business.Repository
 
             string incrementCode = (Int32.Parse(list.ma_dang_ky.Substring(4,4)) + 1).ToString() ;
             return incrementCode;
+        }
+
+        private void Save()
+        {
+            try
+            {
+                _dbcontext.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = String.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
         }
     }
 }

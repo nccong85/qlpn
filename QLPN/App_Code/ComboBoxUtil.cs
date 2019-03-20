@@ -11,6 +11,8 @@ namespace QLPN.App_Code
     public static class ComboBoxUtil
     {
         public const string DEFAULT_ITEM = "----Hãy lựa chọn ----";
+        public const string VIETNAM_TEXT = "250:Viet Nam";
+
         public static void SetDanhSachPhanLoaiQuanChe(Entities dbcontext, ComboBox cmb)
         {
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_QUAN_CHE);
@@ -21,16 +23,12 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachDanhMuc(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_DANH_MUC);
             SettingComboBox(cmb, list);
-
-
         }
 
         public static void SetDanhSachPhamViHoatDong(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_PHAM_VI_HOAT_DONG);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
@@ -39,7 +37,6 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachBienPhapKiLuat(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_BIEN_PHAP_KI_LUAT);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
@@ -48,21 +45,19 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachBienPhapNghiepVu(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_BIEN_PHAP_NGHIEP_VU);
             SettingComboBox(cmb, list);
         }
 
         public static void SetDanhSachDantoc(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_DAN_TOC);
             SettingComboBox(cmb, list);
         }
 
         public static void SetDanhSachTongiao(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
+
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_TON_GIAO);
             SettingComboBox(cmb, list);
             cmb.SelectedIndex = 7;
@@ -70,7 +65,6 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachHocVan(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_HOC_VAN);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
@@ -79,7 +73,6 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachNgonNgu(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_NGON_NGU);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
@@ -88,14 +81,13 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachQuocTich(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_QUOC_TICH);
             SettingComboBox(cmb, list);
+            cmb.SelectedIndex = cmb.FindStringExact(VIETNAM_TEXT);
         }
 
         public static void SetDanhSachToiDanh(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_TOI_DANH);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
@@ -112,7 +104,6 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachPhanKhu(Entities dbcontext, ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItem> list = GetCodeListByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_PHAN_KHU);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
@@ -122,23 +113,15 @@ namespace QLPN.App_Code
         public static void SetDanhSachDanhMuc1(ComboBox cmb, string phanLoaiDanhmuc)
         {
             cmb.Items.Clear();
-            if (string.Equals(phanLoaiDanhmuc, "00"))
-            {
-                cmb.Items.Add(new ListItem("a", "a"));
-                cmb.Items.Add(new ListItem("b", "b"));
-                cmb.Items.Add(new ListItem("c", "c"));
-                cmb.Items.Add(new ListItem("d", "d"));
-                cmb.Items.Add(new ListItem("đ", "đ"));
-            } else if(string.Equals(phanLoaiDanhmuc, "01"))
-            {
-                cmb.Items.Add(new ListItem("a", "a"));
-                cmb.Items.Add(new ListItem("b", "b"));
-                cmb.Items.Add(new ListItem("c", "c"));
-                cmb.Items.Add(new ListItem("d", "d"));
-                cmb.Items.Add(new ListItem("đ", "đ"));
-                cmb.Items.Add(new ListItem("e", "e"));
-                cmb.Items.Add(new ListItem("g", "g"));
-            }
+
+            cmb.Items.Add(new ListItem("a", "a"));
+            cmb.Items.Add(new ListItem("b", "b"));
+            cmb.Items.Add(new ListItem("c", "c"));
+            cmb.Items.Add(new ListItem("d", "d"));
+            cmb.Items.Add(new ListItem("đ", "đ"));
+            cmb.Items.Add(new ListItem("e", "e"));
+            cmb.Items.Add(new ListItem("g", "g"));
+
             cmb.ValueMember = "Value";
             cmb.DisplayMember = "Text";
         }
@@ -147,7 +130,6 @@ namespace QLPN.App_Code
 
         public static void SetDanhSachTraiGiam(Entities dbContext,ComboBox cmb)
         {
-            cmb.Items.Clear();
             List<ListItemEx> divisionList = GetDivisonList(dbContext);
             cmb.DataSource = divisionList;
             cmb.ValueMember = "Value";

@@ -33,7 +33,7 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.openFileDialogImportCsvFilePath = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogExportCsvFilePath = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -109,18 +109,19 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button5
+            // btnDelete
             // 
-            this.button5.FlatAppearance.BorderSize = 2;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(544, 29);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(124, 36);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Xóa";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDelete.FlatAppearance.BorderSize = 2;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDelete.Location = new System.Drawing.Point(544, 29);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(124, 36);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // openFileDialogImportCsvFilePath
             // 
@@ -279,10 +280,10 @@
             this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPrisonerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrisonerList.Location = new System.Drawing.Point(27, 215);
-            this.dgvPrisonerList.MultiSelect = false;
             this.dgvPrisonerList.Name = "dgvPrisonerList";
             this.dgvPrisonerList.Size = new System.Drawing.Size(707, 462);
             this.dgvPrisonerList.TabIndex = 6;
+            this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
             // 
             // QLPN
             // 
@@ -292,7 +293,7 @@
             this.Controls.Add(this.dgvPrisonerList);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnExport);
@@ -302,6 +303,7 @@
             this.Name = "QLPN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý phạm nhân";
+            this.Activated += new System.EventHandler(this.QLPN_Activated);
             this.Load += new System.EventHandler(this.QLPN_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -317,7 +319,7 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.OpenFileDialog openFileDialogImportCsvFilePath;
         private System.Windows.Forms.SaveFileDialog saveFileDialogExportCsvFilePath;
         private System.Windows.Forms.GroupBox groupBox1;

@@ -99,14 +99,13 @@
             this.txtMaPN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkRaTrai = new System.Windows.Forms.CheckBox();
             this.txtLyDoRaTrai = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.dtpNgayRaTrai = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
-            this.chkRaTrai = new System.Windows.Forms.CheckBox();
             this.btnDummyRegistration = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -524,7 +523,6 @@
             this.cmbDanhMuc.Name = "cmbDanhMuc";
             this.cmbDanhMuc.Size = new System.Drawing.Size(188, 21);
             this.cmbDanhMuc.TabIndex = 27;
-            this.cmbDanhMuc.SelectedValueChanged += new System.EventHandler(this.cmbDanhMuc1_SelectedValueChanged);
             // 
             // label19
             // 
@@ -872,27 +870,13 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatAppearance.BorderSize = 2;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDelete.Location = new System.Drawing.Point(300, 658);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(149, 36);
-            this.btnDelete.TabIndex = 26;
-            this.btnDelete.Text = "Xóa thông tin [DEL]";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnClose
             // 
             this.btnClose.FlatAppearance.BorderSize = 2;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClose.Location = new System.Drawing.Point(455, 658);
+            this.btnClose.Location = new System.Drawing.Point(300, 658);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(147, 36);
             this.btnClose.TabIndex = 27;
@@ -914,6 +898,17 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ra trại";
+            // 
+            // chkRaTrai
+            // 
+            this.chkRaTrai.AutoSize = true;
+            this.chkRaTrai.Location = new System.Drawing.Point(295, 28);
+            this.chkRaTrai.Name = "chkRaTrai";
+            this.chkRaTrai.Size = new System.Drawing.Size(106, 20);
+            this.chkRaTrai.TabIndex = 55;
+            this.chkRaTrai.Text = "Được ra trại";
+            this.chkRaTrai.UseVisualStyleBackColor = true;
+            this.chkRaTrai.CheckedChanged += new System.EventHandler(this.chkRaTrai_CheckedChanged);
             // 
             // txtLyDoRaTrai
             // 
@@ -952,28 +947,17 @@
             this.label24.TabIndex = 31;
             this.label24.Text = "Ngày ra trại";
             // 
-            // chkRaTrai
-            // 
-            this.chkRaTrai.AutoSize = true;
-            this.chkRaTrai.Location = new System.Drawing.Point(295, 28);
-            this.chkRaTrai.Name = "chkRaTrai";
-            this.chkRaTrai.Size = new System.Drawing.Size(106, 20);
-            this.chkRaTrai.TabIndex = 55;
-            this.chkRaTrai.Text = "Được ra trại";
-            this.chkRaTrai.UseVisualStyleBackColor = true;
-            this.chkRaTrai.CheckedChanged += new System.EventHandler(this.chkRaTrai_CheckedChanged);
-            // 
             // btnDummyRegistration
             // 
             this.btnDummyRegistration.FlatAppearance.BorderSize = 2;
             this.btnDummyRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDummyRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnDummyRegistration.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDummyRegistration.Location = new System.Drawing.Point(608, 658);
+            this.btnDummyRegistration.Location = new System.Drawing.Point(453, 658);
             this.btnDummyRegistration.Name = "btnDummyRegistration";
             this.btnDummyRegistration.Size = new System.Drawing.Size(147, 36);
             this.btnDummyRegistration.TabIndex = 28;
-            this.btnDummyRegistration.Text = "Đóng màn hình[INS]";
+            this.btnDummyRegistration.Text = "Tạo Dummy";
             this.btnDummyRegistration.UseVisualStyleBackColor = true;
             this.btnDummyRegistration.Click += new System.EventHandler(this.btnDummyRegistration_Click);
             // 
@@ -985,7 +969,6 @@
             this.Controls.Add(this.btnDummyRegistration);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -996,7 +979,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DKCNPN";
             this.Load += new System.EventHandler(this.DKCNPN_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DKCNPN_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1011,7 +993,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

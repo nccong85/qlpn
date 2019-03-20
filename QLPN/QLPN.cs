@@ -17,18 +17,18 @@ namespace QLPN
 {
     public partial class QLPN : Form
     {
-        private readonly PrisonRepository prisonRepository;
+        private readonly PrisonRepository _prisonRepository;
 
         public QLPN()
         {
             InitializeComponent();
             Entities dbContext = new Entities();
-            prisonRepository = new PrisonRepository(dbContext);
+            _prisonRepository = new PrisonRepository(dbContext);
         }
 
         private void QLPN_Load(object sender, EventArgs e)
         {
-            dgvPrisonerList.DataSource = prisonRepository.GetList();
+            dgvPrisonerList.DataSource = _prisonRepository.GetList();
             this.AdjustColumnIndex();
             this.AdjustColumnName();
         }
@@ -140,16 +140,13 @@ namespace QLPN
         private void btnAdd_Click(object sender, EventArgs e)
         {
             DKCNPN form = new DKCNPN();
+            form.IsUpdateMode = false;
             form.ShowDialog();
-
-            dgvPrisonerList.DataSource = prisonRepository.GetList();
-            this.AdjustColumnIndex();
-            this.AdjustColumnName();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(dgvPrisonerList.SelectedRows.Count == 0)
+            if(this.dgvPrisonerList.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn 1 dòng trên danh sách!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }else if (dgvPrisonerList.SelectedRows.Count > 1)
@@ -167,10 +164,44 @@ namespace QLPN
             form.IsUpdateMode = true;
             form.MaPhamNhan = maPn;
             form.ShowDialog();
+        }
 
-            dgvPrisonerList.DataSource = prisonRepository.GetList();
+        private void dgvPrisonerList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.OpenEditForm(this.dgvPrisonerList.CurrentRow.Cells[1].Value.ToString());
+        }
+
+        private void QLPN_Activated(object sender, EventArgs e)
+        {
+            dgvPrisonerList.DataSource = _prisonRepository.GetList();
             this.AdjustColumnIndex();
             this.AdjustColumnName();
+        }
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvPrisonerList.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 dòng trên danh sách!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                List<String> idList = new List<string>();
+                foreach (DataGridViewRow row in dgvPrisonerList.SelectedRows)
+                {
+                    idList.Add(row.Cells[1].Value.ToString());
+                }
+                DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này không?", "Xác nhận", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                if (dr == DialogResult.Yes)
+                {
+                    foreach (String id in idList)
+                    {
+                        _prisonRepository.Delete(id);
+                    }
+                    dgvPrisonerList.DataSource = _prisonRepository.GetList();
+                }
+            }
         }
     }
 }
