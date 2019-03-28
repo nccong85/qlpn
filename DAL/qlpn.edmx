@@ -41,6 +41,14 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="gioi_tinh" Type="nvarchar" MaxLength="2" />
           <Property Name="que_quan" Type="nvarchar" MaxLength="255" />
           <Property Name="noi_dktt" Type="nvarchar" MaxLength="255" />
+          <Property Name="ton_giao" Type="nvarchar" MaxLength="2" />
+          <Property Name="dan_toc" Type="nvarchar" MaxLength="2" />
+          <Property Name="quoc_tich" Type="nvarchar" MaxLength="3" />
+          <Property Name="trinh_do_hoc_van" Type="nvarchar" MaxLength="2" />
+          <Property Name="ngoai_ngu" Type="nvarchar" MaxLength="2" />
+          <Property Name="ten_cha" Type="nvarchar" MaxLength="255" />
+          <Property Name="ten_me" Type="nvarchar" MaxLength="255" />
+          <Property Name="ten_vo_chong" Type="nvarchar" MaxLength="255" />
           <Property Name="toi_danh" Type="nvarchar" MaxLength="255" />
           <Property Name="ngay_bat" Type="datetime" />
           <Property Name="an_phat" Type="nvarchar" MaxLength="255" />
@@ -49,7 +57,6 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="ngay_dua_vao_dien_quan_che" Type="datetime" />
           <Property Name="doi_hien_tai" Type="nvarchar" MaxLength="255" />
           <Property Name="buong_so" Type="nvarchar" MaxLength="255" />
-          <Property Name="khu" Type="nvarchar" MaxLength="255" />
           <Property Name="phan_trai" Type="nvarchar" MaxLength="255" />
           <Property Name="danh_muc" Type="nvarchar" MaxLength="2" />
           <Property Name="danh_muc_1" Type="nvarchar" MaxLength="2" />
@@ -59,14 +66,6 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="bien_phap_ky_luat" Type="nvarchar" MaxLength="255" />
           <Property Name="ngay_dua_ra" Type="datetime" />
           <Property Name="ly_do_dua_ra" Type="nvarchar" MaxLength="255" />
-          <Property Name="ton_giao" Type="nvarchar" MaxLength="2" />
-          <Property Name="dan_toc" Type="nvarchar" MaxLength="2" />
-          <Property Name="quoc_tich" Type="nvarchar" MaxLength="3" />
-          <Property Name="trinh_do_hoc_van" Type="nvarchar" MaxLength="2" />
-          <Property Name="ngoai_ngu" Type="nvarchar" MaxLength="2" />
-          <Property Name="ten_cha" Type="nvarchar" MaxLength="255" />
-          <Property Name="ten_me" Type="nvarchar" MaxLength="255" />
-          <Property Name="ten_vo_chong" Type="nvarchar" MaxLength="255" />
           <Property Name="tien_an" Type="nvarchar" MaxLength="255" />
           <Property Name="tien_su" Type="nvarchar" MaxLength="255" />
           <Property Name="tom_tat_toi_danh" Type="nvarchar" MaxLength="255" />
@@ -122,7 +121,6 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="ngay_dua_vao_dien_quan_che" Type="DateTime" Precision="3" />
           <Property Name="doi_hien_tai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="buong_so" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="khu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="phan_trai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="danh_muc" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="danh_muc_1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
@@ -202,7 +200,6 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
                 <ScalarProperty Name="ngay_dua_vao_dien_quan_che" ColumnName="ngay_dua_vao_dien_quan_che" />
                 <ScalarProperty Name="doi_hien_tai" ColumnName="doi_hien_tai" />
                 <ScalarProperty Name="buong_so" ColumnName="buong_so" />
-                <ScalarProperty Name="khu" ColumnName="khu" />
                 <ScalarProperty Name="phan_trai" ColumnName="phan_trai" />
                 <ScalarProperty Name="danh_muc" ColumnName="danh_muc" />
                 <ScalarProperty Name="danh_muc_1" ColumnName="danh_muc_1" />

@@ -53,5 +53,34 @@ namespace CommonLib
 
             public const string MESSAGE_CAPTION_INFOR = "Thông báo";
         }
+
+        public class FormatDateTime
+        {
+            public const string DATE_YYYYMMDD = "yyyy/MM/dd";
+            public const string TIME_HHMMSS = "{0:HH:mm:ss}";
+            public const string TIME_HHMM = "{0:HH:mm}";
+            public const string DATE_MMDDYYYY = "MM/dd/yyyy";
+            public const string DATE_FULL = "yyyy/MM/dd HH:mm";
+            public const string DATE_FORMAT_DATETIME2 = "{0:yyyy/MM/dd HH:mm:ss.fffffff}";
+            public const string DATE_FORMAT_MMDD = "{0:MM/dd}";
+            public const string DATE_FORMAT_YYYYMMDD = "{0:yyyy/MM/dd}";
+            public const string DATE_FORMAT_YYYYMMDD_HHMMSS = "{0:yyyy/MM/dd HH:mm:ss}";
+            public const string DATE_FORMAT_YYYYMMDD_HHMM = "{0:yyyy/MM/dd HH:mm}";
+            public const string DATE_FORMAT_YYYYMM = "{0:yyyy/MM}";
+            public const string MD_JP = "M月d日";
+            public const string YM_JP = "yyyy年MM月";
+            public const string YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
+            public const string YYYY_MM_DD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";
+            public const string YYYYMMDD = "yyyyMMdd";
+            public const string YYYYMM = "yyyyMM";
+            public const string YYMMDD = "yyMMdd";
+            public const string YYMM = "yyMM";
+            public const string YEAR_MONTH = "yyyy/MM";
+            public const string DATE_FORMAT_YYYYMM_2 = "{0:yyyyMM}";
+            public const string DATE_FORMAT_YYYYMMDD_2 = "{0:yyyyMMdd}";
+            public const string YYYY_MM_DD = "yyyy-mm-dd";
+            public const string DATE_DATETIME2 = "yyyy/MM/dd HH:mm:ss.fffffff";
+            public const string HH_MM = "HHmm";
+        }
     }
 }

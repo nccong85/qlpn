@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvPrisonerList = new System.Windows.Forms.DataGridView();
+            this.btnRefesh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrisonerList)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +67,7 @@
             this.btnImport.TabIndex = 0;
             this.btnImport.Text = "Nhập dữ liệu";
             this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
             // 
@@ -126,6 +128,10 @@
             // openFileDialogImportCsvFilePath
             // 
             this.openFileDialogImportCsvFilePath.FileName = "openFileDialog1";
+            // 
+            // saveFileDialogExportCsvFilePath
+            // 
+            this.saveFileDialogExportCsvFilePath.Filter = "Binary Files|*.pns";
             // 
             // groupBox1
             // 
@@ -270,20 +276,34 @@
             this.dgvPrisonerList.AllowUserToOrderColumns = true;
             this.dgvPrisonerList.AllowUserToResizeColumns = false;
             this.dgvPrisonerList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPrisonerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrisonerList.Location = new System.Drawing.Point(27, 215);
             this.dgvPrisonerList.Name = "dgvPrisonerList";
             this.dgvPrisonerList.Size = new System.Drawing.Size(707, 462);
             this.dgvPrisonerList.TabIndex = 6;
             this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.FlatAppearance.BorderSize = 2;
+            this.btnRefesh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefesh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnRefesh.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRefesh.Location = new System.Drawing.Point(674, 29);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(83, 36);
+            this.btnRefesh.TabIndex = 3;
+            this.btnRefesh.Text = "Refresh";
+            this.btnRefesh.UseVisualStyleBackColor = true;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
             // 
             // QLPN
             // 
@@ -293,6 +313,7 @@
             this.Controls.Add(this.dgvPrisonerList);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnRefesh);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
@@ -303,7 +324,6 @@
             this.Name = "QLPN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý phạm nhân";
-            this.Activated += new System.EventHandler(this.QLPN_Activated);
             this.Load += new System.EventHandler(this.QLPN_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -336,6 +356,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvPrisonerList;
+        private System.Windows.Forms.Button btnRefesh;
     }
 }
 

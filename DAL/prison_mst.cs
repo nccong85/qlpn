@@ -31,7 +31,6 @@ namespace DAL
         public Nullable<System.DateTime> ngay_dua_vao_dien_quan_che { get; set; }
         public string doi_hien_tai { get; set; }
         public string buong_so { get; set; }
-        public string khu { get; set; }
         public string phan_trai { get; set; }
         public string danh_muc { get; set; }
         public string danh_muc_1 { get; set; }

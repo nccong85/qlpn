@@ -18,6 +18,7 @@ namespace Business.Repository
 
         public List<prison_mst> GetList()
         {
+            //_dbcontext.Entry<prison_mst>().Reload();
             return _dbcontext.prison_mst.ToList();
         }
 
@@ -46,7 +47,7 @@ namespace Business.Repository
         {
             prison_mst prison = (from prisoner in _dbcontext.prison_mst
                                  where prisoner.ma_dang_ky == ma_dang_ky
-                                 select prisoner).SingleOrDefault();
+                                 select prisoner).FirstOrDefault();
 
             return prison;
         }

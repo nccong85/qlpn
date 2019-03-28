@@ -19,19 +19,29 @@ namespace QLPN
     {
         public bool IsUpdateMode { get => _isUpdateMode; set => _isUpdateMode = value; }
         public string MaPhamNhan { get => _maPhamNhan; set => _maPhamNhan = value; }
+        //public delegate void UpdateDelegate(object sender, EventArgs args);
+        //public event UpdateDelegate UpdateEventHandler;
 
         private readonly Entities _dbContext;
         private PrisonRepository _prisonRepository;
         private bool _isUpdateMode = false;
         private string _maPhamNhan = CommonConst.BLANK;
         private prison_mst _prisoner = null;
+        //private QLPN _qlpnForm = null;
 
         public DKCNPN()
         {
             InitializeComponent();
             _dbContext = new Entities();
             _prisonRepository = new PrisonRepository(_dbContext);
+            //_qlpnForm = frm;
         }
+
+        //protected void raiseUpdate()
+        //{
+        //    EventArgs args = new EventArgs();
+        //    UpdateEventHandler?.Invoke(this, args);
+        //}
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -51,6 +61,7 @@ namespace QLPN
             if (IsValidate(_prisoner))
             {
                 _prisonRepository.Update(_prisoner);
+                //raiseUpdate();
             }
             else
             {
@@ -134,6 +145,7 @@ namespace QLPN
                 if (IsValidate(prisoner))
                 {
                     _prisonRepository.Add(prisoner);
+                    //raiseUpdate();
                 }
                 else
                 {
@@ -162,7 +174,7 @@ namespace QLPN
             }
         }
 
-        private void    LoadDataToScreen()
+        private void LoadDataToScreen()
         {       
             if (!String.IsNullOrEmpty(_maPhamNhan))
             {
@@ -352,7 +364,15 @@ namespace QLPN
         {
             if (keyData == Keys.F10)
             {
-                this.AddNewPrisoner();
+                if (IsUpdateMode)
+                {
+                    this.UpdatePrisoner();
+                }
+                else
+                {
+                    this.AddNewPrisoner();
+                }
+                
                 return true;
             }else if (keyData == Keys.Escape)
             {
