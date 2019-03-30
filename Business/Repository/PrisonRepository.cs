@@ -1,4 +1,5 @@
 ﻿using DAL;
+using QLPN.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,6 +93,19 @@ namespace Business.Repository
                 }
                 throw raise;
             }
+        }
+
+        public List<prison_mst> SearchPrison(SearchDto search)
+        {
+            var result = new List<prison_mst>();
+
+            var initQuery = (from prison in _dbcontext.prison_mst
+                             where (String.IsNullOrEmpty(search.MaDangKy) || prison.ma_dang_ky == search.MaDangKy)
+                             && (String.IsNullOrEmpty(search.TenPhamNhan) || prison.ho_va_ten == search.TenPhamNhan)
+                             && (String.IsNullOrEmpty(search.MaDangKy) || prison.ma_trai_giam == search.TenTraiGiam)
+                             select prison);
+            result = initQuery.ToList();
+            return result;
         }
     }
 }

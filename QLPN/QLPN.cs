@@ -4,6 +4,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using DAL;
 using QLPN.App_Code;
+using QLPN.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -145,7 +146,6 @@ namespace QLPN
                             csvWriter.NextRecord();
                         }
                         csvWriter.Flush();
-                        
                     }
                     string pass = Util.GetResource("key");
                     EncDec.Encrypt(tempFile, path, pass);
@@ -206,7 +206,6 @@ namespace QLPN
 
         private void childForm_Closed(object sender, EventArgs e)
         {
-            
             List<prison_mst> lsit = _prisonRepository.GetList();
             dgvPrisonerList.DataSource = lsit;
         }
@@ -315,6 +314,22 @@ namespace QLPN
             List<prison_mst> lsit = _prisonRepository.GetList();
             dgvPrisonerList.DataSource = lsit;
             this.dgvPrisonerList.Refresh();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //var prisonList = (List<prison_mst>)dgvPrisonerList.DataSource;
+            //if (!String.IsNullOrEmpty(txtSearchPrisonId.Text.Trim())){
+            //    var resultList = prisonList.FindAll(c => c.ma_dang_ky.Contains(txtSearchPrisonId.Text));
+            //    dgvPrisonerList.DataSource = resultList;
+            //}
+
+            SearchDto search = new SearchDto();
+            search.MaDangKy = txtSearchPrisonId.Text.Trim();
+            search.TenPhamNhan = txtSearchPrisonName.Text.Trim();
+
+            dgvPrisonerList.DataSource = _prisonRepository.SearchPrison(search);
+
         }
     }
 }

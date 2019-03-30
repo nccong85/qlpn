@@ -24,12 +24,7 @@ namespace DAL
         {
             throw new UnintentionalCodeFirstException();
         }
-
-        public object Entry<T>()
-        {
-            throw new NotImplementedException();
-        }
-
+    
         public virtual DbSet<division_mst> division_mst { get; set; }
         public virtual DbSet<prison_mst> prison_mst { get; set; }
         public virtual DbSet<code_mst> code_mst { get; set; }

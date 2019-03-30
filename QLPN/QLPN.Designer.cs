@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -61,9 +61,9 @@
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnImport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImport.Location = new System.Drawing.Point(24, 29);
+            this.btnImport.Location = new System.Drawing.Point(24, 27);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(124, 36);
+            this.btnImport.Size = new System.Drawing.Size(124, 33);
             this.btnImport.TabIndex = 0;
             this.btnImport.Text = "Nhập dữ liệu";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -75,9 +75,9 @@
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnExport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnExport.Location = new System.Drawing.Point(154, 29);
+            this.btnExport.Location = new System.Drawing.Point(154, 27);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(124, 36);
+            this.btnExport.Size = new System.Drawing.Size(124, 33);
             this.btnExport.TabIndex = 1;
             this.btnExport.Text = "Xuất dữ liệu";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAdd.Location = new System.Drawing.Point(284, 29);
+            this.btnAdd.Location = new System.Drawing.Point(284, 27);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(124, 36);
+            this.btnAdd.Size = new System.Drawing.Size(124, 33);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm mới";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -103,9 +103,9 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdate.Location = new System.Drawing.Point(414, 29);
+            this.btnUpdate.Location = new System.Drawing.Point(414, 27);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(124, 36);
+            this.btnUpdate.Size = new System.Drawing.Size(124, 33);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Chỉnh sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -117,9 +117,9 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDelete.Location = new System.Drawing.Point(544, 29);
+            this.btnDelete.Location = new System.Drawing.Point(544, 27);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(124, 36);
+            this.btnDelete.Size = new System.Drawing.Size(124, 33);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             this.groupBox1.Controls.Add(this.txtSearchPrisonId);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(24, 82);
+            this.groupBox1.Location = new System.Drawing.Point(24, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(710, 99);
+            this.groupBox1.Size = new System.Drawing.Size(710, 91);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức năng tìm kiếm";
@@ -160,17 +160,18 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSearch.Location = new System.Drawing.Point(460, 57);
+            this.btnSearch.Location = new System.Drawing.Point(460, 53);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(234, 21);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cmbSearchDivisonId
             // 
             this.cmbSearchDivisonId.FormattingEnabled = true;
-            this.cmbSearchDivisonId.Location = new System.Drawing.Point(326, 57);
+            this.cmbSearchDivisonId.Location = new System.Drawing.Point(326, 53);
             this.cmbSearchDivisonId.Name = "cmbSearchDivisonId";
             this.cmbSearchDivisonId.Size = new System.Drawing.Size(125, 21);
             this.cmbSearchDivisonId.TabIndex = 9;
@@ -179,7 +180,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label5.Location = new System.Drawing.Point(232, 63);
+            this.label5.Location = new System.Drawing.Point(232, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 8;
@@ -190,7 +191,7 @@
             this.dtpSearchPrisonIn.CustomFormat = "dd/MM/yyyy";
             this.dtpSearchPrisonIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dtpSearchPrisonIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchPrisonIn.Location = new System.Drawing.Point(96, 57);
+            this.dtpSearchPrisonIn.Location = new System.Drawing.Point(96, 53);
             this.dtpSearchPrisonIn.Name = "dtpSearchPrisonIn";
             this.dtpSearchPrisonIn.Size = new System.Drawing.Size(118, 20);
             this.dtpSearchPrisonIn.TabIndex = 7;
@@ -199,7 +200,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label4.Location = new System.Drawing.Point(6, 63);
+            this.label4.Location = new System.Drawing.Point(6, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 6;
@@ -210,7 +211,7 @@
             this.dtpSearchPrisonDob.CustomFormat = "dd/MM/yyyy";
             this.dtpSearchPrisonDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.dtpSearchPrisonDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchPrisonDob.Location = new System.Drawing.Point(576, 24);
+            this.dtpSearchPrisonDob.Location = new System.Drawing.Point(576, 22);
             this.dtpSearchPrisonDob.Name = "dtpSearchPrisonDob";
             this.dtpSearchPrisonDob.Size = new System.Drawing.Size(118, 20);
             this.dtpSearchPrisonDob.TabIndex = 5;
@@ -219,7 +220,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label3.Location = new System.Drawing.Point(457, 27);
+            this.label3.Location = new System.Drawing.Point(457, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 4;
@@ -227,7 +228,7 @@
             // 
             // txtSearchPrisonName
             // 
-            this.txtSearchPrisonName.Location = new System.Drawing.Point(326, 24);
+            this.txtSearchPrisonName.Location = new System.Drawing.Point(326, 22);
             this.txtSearchPrisonName.Name = "txtSearchPrisonName";
             this.txtSearchPrisonName.Size = new System.Drawing.Size(125, 20);
             this.txtSearchPrisonName.TabIndex = 3;
@@ -236,7 +237,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label2.Location = new System.Drawing.Point(232, 27);
+            this.label2.Location = new System.Drawing.Point(232, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 2;
@@ -244,7 +245,7 @@
             // 
             // txtSearchPrisonId
             // 
-            this.txtSearchPrisonId.Location = new System.Drawing.Point(96, 24);
+            this.txtSearchPrisonId.Location = new System.Drawing.Point(96, 22);
             this.txtSearchPrisonId.Name = "txtSearchPrisonId";
             this.txtSearchPrisonId.Size = new System.Drawing.Size(120, 20);
             this.txtSearchPrisonId.TabIndex = 1;
@@ -253,7 +254,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 0;
@@ -263,7 +264,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 184);
+            this.label6.Location = new System.Drawing.Point(24, 170);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 16);
             this.label6.TabIndex = 5;
@@ -276,18 +277,18 @@
             this.dgvPrisonerList.AllowUserToOrderColumns = true;
             this.dgvPrisonerList.AllowUserToResizeColumns = false;
             this.dgvPrisonerList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPrisonerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrisonerList.Location = new System.Drawing.Point(27, 215);
+            this.dgvPrisonerList.Location = new System.Drawing.Point(27, 198);
             this.dgvPrisonerList.Name = "dgvPrisonerList";
-            this.dgvPrisonerList.Size = new System.Drawing.Size(707, 462);
+            this.dgvPrisonerList.Size = new System.Drawing.Size(707, 426);
             this.dgvPrisonerList.TabIndex = 6;
             this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
             // 
@@ -297,9 +298,9 @@
             this.btnRefesh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefesh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnRefesh.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRefesh.Location = new System.Drawing.Point(674, 29);
+            this.btnRefesh.Location = new System.Drawing.Point(674, 27);
             this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Size = new System.Drawing.Size(83, 36);
+            this.btnRefesh.Size = new System.Drawing.Size(83, 33);
             this.btnRefesh.TabIndex = 3;
             this.btnRefesh.Text = "Refresh";
             this.btnRefesh.UseVisualStyleBackColor = true;
@@ -307,9 +308,9 @@
             // 
             // QLPN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 717);
+            this.ClientSize = new System.Drawing.Size(769, 662);
             this.Controls.Add(this.dgvPrisonerList);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);

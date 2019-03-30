@@ -148,13 +148,5 @@ namespace QLPN.App_Code
                 return retString;
             }
         }
-
-        //public static prison_mst EncryptPrison(prison_mst obj)
-        //{
-        //    string pass = Util.GetResource("key");
-        //    prison_mst prison = new prison_mst();
-
-        //    prison.id = EncDec.Encrypt(obj.id.ToString(), pass);
-        //}
     }
 }
