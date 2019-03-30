@@ -20,7 +20,7 @@ namespace Business.Repository
         public List<prison_mst> GetList()
         {
             //_dbcontext.Entry<prison_mst>().Reload();
-            return _dbcontext.prison_mst.ToList();
+            return _dbcontext.prison_mst.AsNoTracking().ToList();
         }
 
         public void Add(prison_mst addObj)
@@ -64,11 +64,11 @@ namespace Business.Repository
         public string GetIcrementCodeForDummy()
         {
             prison_mst list = (from prison in _dbcontext.prison_mst
-                                     where prison.ma_trai_giam == "0VLB0002"
-                                     orderby prison.ngay_tao descending
-                                     select prison).FirstOrDefault();
+                               where prison.ma_trai_giam == "0VLB0002"
+                               orderby prison.ngay_tao descending
+                               select prison).FirstOrDefault();
 
-            string incrementCode = (Int32.Parse(list.ma_dang_ky.Substring(4,4)) + 1).ToString() ;
+            string incrementCode = (Int32.Parse(list.ma_dang_ky.Substring(4, 4)) + 1).ToString();
             return incrementCode;
         }
 
@@ -97,14 +97,24 @@ namespace Business.Repository
 
         public List<prison_mst> SearchPrison(SearchDto search)
         {
-            var result = new List<prison_mst>();
+            var result = this.GetList();
 
-            var initQuery = (from prison in _dbcontext.prison_mst
-                             where (String.IsNullOrEmpty(search.MaDangKy) || prison.ma_dang_ky == search.MaDangKy)
-                             && (String.IsNullOrEmpty(search.TenPhamNhan) || prison.ho_va_ten == search.TenPhamNhan)
-                             && (String.IsNullOrEmpty(search.MaDangKy) || prison.ma_trai_giam == search.TenTraiGiam)
-                             select prison);
-            result = initQuery.ToList();
+            if (!String.IsNullOrEmpty(search.MaDangKy))
+            {
+                result = result.Where(p => p.ma_dang_ky.Contains(search.MaDangKy)).ToList();
+            }
+
+            if (!String.IsNullOrEmpty(search.TenPhamNhan))
+            {
+                result = result.Where(p => p.ho_va_ten.Contains(search.TenPhamNhan)).ToList();
+            }
+
+            if (!String.IsNullOrEmpty(search.MaTraiGiam))
+            {
+                result = result.Where(p => p.ma_trai_giam.Contains(search.MaTraiGiam)).ToList();
+            }
+
+
             return result;
         }
     }

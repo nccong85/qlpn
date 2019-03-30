@@ -12,6 +12,6 @@ namespace QLPN.DTO
         public string TenPhamNhan { get; set; }
         public Nullable<System.DateTime> NgayThangNamSinh { get; set; }
         public Nullable<System.DateTime> NgayNhapTrai { get; set; }
-        public string TenTraiGiam { get; set; }
+        public string MaTraiGiam { get; set; }
     }
 }

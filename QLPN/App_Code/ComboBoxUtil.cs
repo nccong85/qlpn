@@ -125,9 +125,7 @@ namespace QLPN.App_Code
             cmb.ValueMember = "Value";
             cmb.DisplayMember = "Text";
         }
-
-
-
+        
         public static void SetDanhSachTraiGiam(Entities dbContext,ComboBox cmb)
         {
             List<ListItemEx> divisionList = GetDivisonList(dbContext);

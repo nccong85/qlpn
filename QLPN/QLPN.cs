@@ -1,5 +1,6 @@
 ﻿using Business.Repository;
 using CommonLib;
+using CommonLib.Model.DTO;
 using CsvHelper;
 using CsvHelper.Configuration;
 using DAL;
@@ -16,21 +17,32 @@ namespace QLPN
     public partial class QLPN : Form
     {
         private readonly PrisonRepository _prisonRepository;
+        private readonly Entities _dbContext;
 
         public QLPN()
         {
             InitializeComponent();
-            Entities dbContext = new Entities();
-            _prisonRepository = new PrisonRepository(dbContext);
+            _dbContext = new Entities();
+            _prisonRepository = new PrisonRepository(_dbContext);
         }
 
         private void QLPN_Load(object sender, EventArgs e)
         {
+            InitScreen();
             dgvPrisonerList.DataSource = _prisonRepository.GetList();
             this.AdjustColumnIndex();
             this.AdjustColumnName();
         }
 
+        private void InitScreen()
+        {
+            txtSearchPrisonId.Text = String.Empty;
+            txtSearchPrisonName.Text = String.Empty;
+            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbSearchDivisonId);
+
+            cmbSearchDivisonId.SelectedItem = null;
+            cmbSearchDivisonId.SelectedText = CommonConst.BLANK;
+        }
         private void AdjustColumnIndex()
         {
             dgvPrisonerList.Columns["ma_dang_ky"].DisplayIndex = 0;
@@ -307,29 +319,14 @@ namespace QLPN
             }
         }
 
-        private void btnRefesh_Click(object sender, EventArgs e)
-
-        {
-            dgvPrisonerList.DataSource = null;
-            List<prison_mst> lsit = _prisonRepository.GetList();
-            dgvPrisonerList.DataSource = lsit;
-            this.dgvPrisonerList.Refresh();
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //var prisonList = (List<prison_mst>)dgvPrisonerList.DataSource;
-            //if (!String.IsNullOrEmpty(txtSearchPrisonId.Text.Trim())){
-            //    var resultList = prisonList.FindAll(c => c.ma_dang_ky.Contains(txtSearchPrisonId.Text));
-            //    dgvPrisonerList.DataSource = resultList;
-            //}
-
             SearchDto search = new SearchDto();
             search.MaDangKy = txtSearchPrisonId.Text.Trim();
             search.TenPhamNhan = txtSearchPrisonName.Text.Trim();
+            search.MaTraiGiam = cmbSearchDivisonId.SelectedValue == null ? String.Empty : cmbSearchDivisonId.SelectedValue.ToString();
 
             dgvPrisonerList.DataSource = _prisonRepository.SearchPrison(search);
-
         }
     }
 }
