@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -40,10 +40,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.cmbSearchDivisonId = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtpSearchPrisonIn = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpSearchPrisonDob = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtSearchPrisonName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearchPrisonId = new System.Windows.Forms.TextBox();
@@ -137,10 +133,6 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.cmbSearchDivisonId);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dtpSearchPrisonIn);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dtpSearchPrisonDob);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSearchPrisonName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtSearchPrisonId);
@@ -148,10 +140,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(24, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(710, 91);
+            this.groupBox1.Size = new System.Drawing.Size(710, 95);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chức năng tìm kiếm";
+            this.groupBox1.Text = "Tìm kiếm";
             // 
             // btnSearch
             // 
@@ -159,9 +151,9 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSearch.Location = new System.Drawing.Point(460, 53);
+            this.btnSearch.Location = new System.Drawing.Point(285, 61);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(234, 21);
+            this.btnSearch.Size = new System.Drawing.Size(175, 21);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -169,67 +161,31 @@
             // 
             // cmbSearchDivisonId
             // 
+            this.cmbSearchDivisonId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSearchDivisonId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSearchDivisonId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cmbSearchDivisonId.FormattingEnabled = true;
-            this.cmbSearchDivisonId.Location = new System.Drawing.Point(326, 53);
+            this.cmbSearchDivisonId.Location = new System.Drawing.Point(540, 22);
             this.cmbSearchDivisonId.Name = "cmbSearchDivisonId";
-            this.cmbSearchDivisonId.Size = new System.Drawing.Size(125, 21);
+            this.cmbSearchDivisonId.Size = new System.Drawing.Size(145, 21);
             this.cmbSearchDivisonId.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label5.Location = new System.Drawing.Point(232, 58);
+            this.label5.Location = new System.Drawing.Point(478, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Trại giam :";
             // 
-            // dtpSearchPrisonIn
-            // 
-            this.dtpSearchPrisonIn.CustomFormat = "dd/MM/yyyy";
-            this.dtpSearchPrisonIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dtpSearchPrisonIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchPrisonIn.Location = new System.Drawing.Point(96, 53);
-            this.dtpSearchPrisonIn.Name = "dtpSearchPrisonIn";
-            this.dtpSearchPrisonIn.Size = new System.Drawing.Size(118, 20);
-            this.dtpSearchPrisonIn.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label4.Location = new System.Drawing.Point(6, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Ngày nhập trại :";
-            // 
-            // dtpSearchPrisonDob
-            // 
-            this.dtpSearchPrisonDob.CustomFormat = "dd/MM/yyyy";
-            this.dtpSearchPrisonDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dtpSearchPrisonDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSearchPrisonDob.Location = new System.Drawing.Point(576, 22);
-            this.dtpSearchPrisonDob.Name = "dtpSearchPrisonDob";
-            this.dtpSearchPrisonDob.Size = new System.Drawing.Size(118, 20);
-            this.dtpSearchPrisonDob.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label3.Location = new System.Drawing.Point(457, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Ngày tháng năm sinh :";
-            // 
             // txtSearchPrisonName
             // 
+            this.txtSearchPrisonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtSearchPrisonName.Location = new System.Drawing.Point(326, 22);
             this.txtSearchPrisonName.Name = "txtSearchPrisonName";
-            this.txtSearchPrisonName.Size = new System.Drawing.Size(125, 20);
+            this.txtSearchPrisonName.Size = new System.Drawing.Size(146, 20);
             this.txtSearchPrisonName.TabIndex = 3;
             // 
             // label2
@@ -244,6 +200,7 @@
             // 
             // txtSearchPrisonId
             // 
+            this.txtSearchPrisonId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtSearchPrisonId.Location = new System.Drawing.Point(96, 22);
             this.txtSearchPrisonId.Name = "txtSearchPrisonId";
             this.txtSearchPrisonId.Size = new System.Drawing.Size(120, 20);
@@ -263,7 +220,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 170);
+            this.label6.Location = new System.Drawing.Point(24, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 16);
             this.label6.TabIndex = 5;
@@ -276,18 +233,18 @@
             this.dgvPrisonerList.AllowUserToOrderColumns = true;
             this.dgvPrisonerList.AllowUserToResizeColumns = false;
             this.dgvPrisonerList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPrisonerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrisonerList.Location = new System.Drawing.Point(27, 198);
+            this.dgvPrisonerList.Location = new System.Drawing.Point(27, 193);
             this.dgvPrisonerList.Name = "dgvPrisonerList";
-            this.dgvPrisonerList.Size = new System.Drawing.Size(707, 426);
+            this.dgvPrisonerList.Size = new System.Drawing.Size(707, 466);
             this.dgvPrisonerList.TabIndex = 6;
             this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
             // 
@@ -332,10 +289,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSearchPrisonId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpSearchPrisonDob;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpSearchPrisonIn;
         private System.Windows.Forms.ComboBox cmbSearchDivisonId;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSearch;

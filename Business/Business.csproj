@@ -53,6 +53,7 @@
     <Compile Include="Repository\CodeMasterRepository.cs" />
     <Compile Include="Repository\DivisionMasterRepositoty.cs" />
     <Compile Include="Repository\PrisonRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonLib\CommonLib.csproj">

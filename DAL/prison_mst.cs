@@ -51,9 +51,9 @@ namespace DAL
         public string tien_an { get; set; }
         public string tien_su { get; set; }
         public Nullable<System.DateTime> ngay_tao { get; set; }
-        public string nguoi_tao { get; set; }
+        public Nullable<int> nguoi_tao { get; set; }
         public Nullable<System.DateTime> ngay_cap_nhat { get; set; }
-        public string nguoi_cap_nhat { get; set; }
+        public Nullable<int> nguoi_cap_nhat { get; set; }
         public string tom_tat_toi_danh { get; set; }
     }
 }

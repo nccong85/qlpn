@@ -19,6 +19,9 @@ namespace QLPN
         private readonly PrisonRepository _prisonRepository;
         private readonly Entities _dbContext;
 
+        public user_mst UserLogin { get => _user; set => _user = value; }
+        private user_mst _user;
+
         public QLPN()
         {
             InitializeComponent();
@@ -26,6 +29,21 @@ namespace QLPN
             _prisonRepository = new PrisonRepository(_dbContext);
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F3)
+            {
+                ImplementSearch();
+
+                return true;
+            }
+            else if (keyData == Keys.F12)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void QLPN_Load(object sender, EventArgs e)
         {
             InitScreen();
@@ -320,6 +338,11 @@ namespace QLPN
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ImplementSearch();
+        }
+
+        private void ImplementSearch()
         {
             SearchDto search = new SearchDto();
             search.MaDangKy = txtSearchPrisonId.Text.Trim();

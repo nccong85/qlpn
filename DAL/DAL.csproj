@@ -75,6 +75,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>qlpn.edmx</DependentUpon>
     </Compile>
+    <Compile Include="user_mst.cs">
+      <DependentUpon>qlpn.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

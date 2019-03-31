@@ -70,13 +70,35 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="tien_su" Type="nvarchar" MaxLength="255" />
           <Property Name="tom_tat_toi_danh" Type="nvarchar" MaxLength="255" />
           <Property Name="ngay_tao" Type="datetime" />
-          <Property Name="nguoi_tao" Type="varchar" MaxLength="16" />
+          <Property Name="nguoi_tao" Type="int" />
           <Property Name="ngay_cap_nhat" Type="datetime" />
-          <Property Name="nguoi_cap_nhat" Type="varchar" MaxLength="16" />
+          <Property Name="nguoi_cap_nhat" Type="int" />
+        </EntityType>
+        <EntityType Name="user_mst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="64" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+          <Property Name="dept_id" Type="varchar" MaxLength="16" />
+          <Property Name="dept_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="tel" Type="nvarchar" MaxLength="64" />
+          <Property Name="gender" Type="char" MaxLength="2" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="role" Type="char" MaxLength="1" />
+          <Property Name="status" Type="char" MaxLength="1" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+          <Property Name="created_id" Type="int" />
+          <Property Name="updated_id" Type="int" />
         </EntityType>
         <EntityContainer Name="qlpn_dbModelStoreContainer">
           <EntitySet Name="division_mst" EntityType="Self.division_mst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="prison_mst" EntityType="Self.prison_mst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_mst" EntityType="Self.user_mst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="code_mst" EntityType="Self.code_mst" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [code_mst].[id] AS [id], 
@@ -141,9 +163,9 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="tien_an" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="tien_su" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ngay_tao" Type="DateTime" Precision="3" />
-          <Property Name="nguoi_tao" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="nguoi_tao" Type="Int32" />
           <Property Name="ngay_cap_nhat" Type="DateTime" Precision="3" />
-          <Property Name="nguoi_cap_nhat" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="nguoi_cap_nhat" Type="Int32" />
           <Property Name="tom_tat_toi_danh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="code_mst">
@@ -163,7 +185,29 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <EntitySet Name="division_mst" EntityType="Self.division_mst" />
           <EntitySet Name="prison_mst" EntityType="Self.prison_mst" />
           <EntitySet Name="code_mst" EntityType="Self.code_mst" />
+          <EntitySet Name="user_mst" EntityType="qlpn_dbModel.user_mst" />
         </EntityContainer>
+        <EntityType Name="user_mst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dept_id" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="dept_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tel" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <Property Name="created_id" Type="Int32" />
+          <Property Name="updated_id" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -235,6 +279,28 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="value" ColumnName="value" />
                 <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_mst">
+            <EntityTypeMapping TypeName="qlpn_dbModel.user_mst">
+              <MappingFragment StoreEntitySet="user_mst">
+                <ScalarProperty Name="updated_id" ColumnName="updated_id" />
+                <ScalarProperty Name="created_id" ColumnName="created_id" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

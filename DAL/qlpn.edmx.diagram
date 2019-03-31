@@ -4,10 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1858f15c9dc44a288d07f2c5c5c6de05" Name="Diagram1" ZoomLevel="99">
+      <Diagram DiagramId="1858f15c9dc44a288d07f2c5c5c6de05" Name="Diagram1" ZoomLevel="65">
         <EntityTypeShape EntityType="qlpn_dbModel.division_mst" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="qlpn_dbModel.prison_mst" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="qlpn_dbModel.code_mst" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlpn_dbModel.user_mst" Width="1.5" PointX="4.75" PointY="3.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
