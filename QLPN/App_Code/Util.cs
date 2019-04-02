@@ -9,6 +9,7 @@ namespace QLPN.App_Code
 {
     public static class Util
     {
+        public static string PRIVATE_KEY = GetResource("key");
         public static prison_mst CreateNewPrison(prison_mst obj)
         {
             prison_mst ret = new prison_mst();

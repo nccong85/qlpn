@@ -3,13 +3,6 @@ using CommonLib;
 using DAL;
 using QLPN.App_Code;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLPN
@@ -26,25 +19,44 @@ namespace QLPN
             _userRepository = new UserRepository(_dbContext);
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                ImplementLogin();
+                return true;
+            }
+            else if (keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void InitScreen()
         {
             lblError.Text = String.Empty;
             txtUserName.Text = String.Empty;
             txtPassword.Text = String.Empty;
         }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string key = Util.GetResource("key");
+            ImplementLogin();
+        }
 
-            string pass = EncDec.Encrypt(txtPassword.Text.Trim(), key);
+        private void ImplementLogin()
+        {
+            string pass = EncDec.Encrypt(txtPassword.Text.Trim(), Util.PRIVATE_KEY);
             if (_userRepository.IsAuthenticate(txtUserName.Text.Trim(), pass))
             {
                 QLPN form = new QLPN();
                 form.UserLogin = _userRepository.GetUserByUsername(txtUserName.Text.Trim());
                 this.Hide();
                 form.Show();
-                
-            }else
+            }
+            else
             {
                 lblError.Text = "Đăng nhập thất bại!!";
             }

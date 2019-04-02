@@ -8,6 +8,7 @@ using QLPN.App_Code;
 using QLPN.DTO;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -44,10 +45,11 @@ namespace QLPN
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
         private void QLPN_Load(object sender, EventArgs e)
         {
             InitScreen();
-            dgvPrisonerList.DataSource = _prisonRepository.GetList();
+            dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay();
             this.AdjustColumnIndex();
             this.AdjustColumnName();
         }
@@ -60,6 +62,16 @@ namespace QLPN
 
             cmbSearchDivisonId.SelectedItem = null;
             cmbSearchDivisonId.SelectedText = CommonConst.BLANK;
+
+            dgvPrisonerList.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9, FontStyle.Bold, GraphicsUnit.Point);
+            dgvPrisonerList.ColumnHeadersDefaultCellStyle.BackColor = SystemColors.ControlDark;
+            dgvPrisonerList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvPrisonerList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPrisonerList.DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Regular, GraphicsUnit.Point);
+            dgvPrisonerList.DefaultCellStyle.BackColor = Color.Empty;
+            dgvPrisonerList.AlternatingRowsDefaultCellStyle.BackColor = SystemColors.Info;
+            dgvPrisonerList.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dgvPrisonerList.GridColor = SystemColors.ControlDarkDark;
         }
         private void AdjustColumnIndex()
         {
@@ -75,59 +87,57 @@ namespace QLPN
             dgvPrisonerList.Columns["ngay_bat"].DisplayIndex = 9;
             dgvPrisonerList.Columns["an_phat"].DisplayIndex = 10;
             dgvPrisonerList.Columns["ngay_nhap_trai"].DisplayIndex = 11;
-            dgvPrisonerList.Columns["phan_loai_quan_che"].DisplayIndex = 12;
-            dgvPrisonerList.Columns["ngay_dua_vao_dien_quan_che"].DisplayIndex = 13;
-            dgvPrisonerList.Columns["doi_hien_tai"].DisplayIndex = 14;
-            dgvPrisonerList.Columns["buong_so"].DisplayIndex = 15;
-            dgvPrisonerList.Columns["phan_trai"].DisplayIndex = 17;
-            dgvPrisonerList.Columns["danh_muc"].DisplayIndex = 18;
-            dgvPrisonerList.Columns["danh_muc_1"].DisplayIndex = 19;
-            dgvPrisonerList.Columns["pham_vi_hoat_dong"].DisplayIndex = 20;
-            dgvPrisonerList.Columns["bieu_hien_hoat_dong_hien_hanh"].DisplayIndex = 21;
-            dgvPrisonerList.Columns["bien_phap_nghiep_vu"].DisplayIndex = 22;
-            dgvPrisonerList.Columns["bien_phap_ky_luat"].DisplayIndex = 23;
-            dgvPrisonerList.Columns["ngay_dua_ra"].DisplayIndex = 24;
-            dgvPrisonerList.Columns["ly_do_dua_ra"].DisplayIndex = 25;
-            dgvPrisonerList.Columns["ngay_tao"].DisplayIndex = 26;
-            dgvPrisonerList.Columns["nguoi_tao"].DisplayIndex = 27;
-            dgvPrisonerList.Columns["ngay_cap_nhat"].DisplayIndex = 28;
-            dgvPrisonerList.Columns["nguoi_cap_nhat"].DisplayIndex = 29;
+            dgvPrisonerList.Columns["ngay_dua_ra"].DisplayIndex = 12;
+            dgvPrisonerList.Columns["ly_do_dua_ra"].DisplayIndex = 13;
 
             dgvPrisonerList.Columns["ma_dang_ky"].Width = 120;
             dgvPrisonerList.Columns["ho_va_ten"].Width = 150;
             dgvPrisonerList.Columns["ten_goi_khac"].Width = 150;
             dgvPrisonerList.Columns["ma_trai_giam"].Width = 120;
             dgvPrisonerList.Columns["ngay_thang_nam_sinh"].Width = 100;
-            dgvPrisonerList.Columns["gioi_tinh"].Width = 80;
+            dgvPrisonerList.Columns["gioi_tinh"].Width = 100;
             dgvPrisonerList.Columns["que_quan"].Width = 250;
             dgvPrisonerList.Columns["noi_dktt"].Width = 250;
-            dgvPrisonerList.Columns["toi_danh"].Width = 100;
+            dgvPrisonerList.Columns["toi_danh"].Width = 250;
             dgvPrisonerList.Columns["ngay_bat"].Width = 100;
             dgvPrisonerList.Columns["an_phat"].Width = 150;
-            dgvPrisonerList.Columns["ngay_nhap_trai"].Width = 100;
-            dgvPrisonerList.Columns["phan_loai_quan_che"].Width = 100;
-            dgvPrisonerList.Columns["ngay_dua_vao_dien_quan_che"].Width = 100;
-            dgvPrisonerList.Columns["doi_hien_tai"].Width = 100;
-            dgvPrisonerList.Columns["buong_so"].Width = 100;
-            dgvPrisonerList.Columns["phan_trai"].Width = 100;
-            dgvPrisonerList.Columns["danh_muc"].Width = 100;
-            dgvPrisonerList.Columns["danh_muc_1"].Width = 100;
-            dgvPrisonerList.Columns["pham_vi_hoat_dong"].Width = 100;
-            dgvPrisonerList.Columns["bieu_hien_hoat_dong_hien_hanh"].Width = 100;
-            dgvPrisonerList.Columns["bien_phap_nghiep_vu"].Width = 100;
-            dgvPrisonerList.Columns["bien_phap_ky_luat"].Width = 100;
-            dgvPrisonerList.Columns["ngay_dua_ra"].Width = 100;
-            dgvPrisonerList.Columns["ly_do_dua_ra"].Width = 200;
-            dgvPrisonerList.Columns["ngay_tao"].Width = 80;
-            dgvPrisonerList.Columns["nguoi_tao"].Width = 80;
-            dgvPrisonerList.Columns["ngay_cap_nhat"].Width = 80;
-            dgvPrisonerList.Columns["nguoi_cap_nhat"].Width = 80;
+            dgvPrisonerList.Columns["ngay_nhap_trai"].Width = 120;
+            dgvPrisonerList.Columns["ngay_dua_ra"].Width = 120;
+            dgvPrisonerList.Columns["ly_do_dua_ra"].Width = 150;
+
+            dgvPrisonerList.Columns["id"].Visible = false;
+            //dgvPrisonerList.Columns["phan_loai_quan_che"].Visible = false;
+            //dgvPrisonerList.Columns["ngay_dua_vao_dien_quan_che"].Visible = false;
+            //dgvPrisonerList.Columns["ton_giao"].Visible = false;
+            //dgvPrisonerList.Columns["dan_toc"].Visible = false;
+            //dgvPrisonerList.Columns["quoc_tich"].Visible = false;
+            //dgvPrisonerList.Columns["trinh_do_hoc_van"].Visible = false;
+            //dgvPrisonerList.Columns["ngoai_ngu"].Visible = false;
+            //dgvPrisonerList.Columns["ten_cha"].Visible = false;
+            //dgvPrisonerList.Columns["ten_me"].Visible = false;
+            //dgvPrisonerList.Columns["ten_vo_chong"].Visible = false;
+            //dgvPrisonerList.Columns["tien_an"].Visible = false;
+            //dgvPrisonerList.Columns["tien_su"].Visible = false;
+            //dgvPrisonerList.Columns["tom_tat_toi_danh"].Visible = false;
+            //dgvPrisonerList.Columns["doi_hien_tai"].Visible = false;
+            //dgvPrisonerList.Columns["buong_so"].Visible = false;
+            //dgvPrisonerList.Columns["phan_trai"].Visible = false;
+            //dgvPrisonerList.Columns["danh_muc"].Visible = false;
+            //dgvPrisonerList.Columns["danh_muc_1"].Visible = false;
+            //dgvPrisonerList.Columns["pham_vi_hoat_dong"].Visible = false;
+            //dgvPrisonerList.Columns["bieu_hien_hoat_dong_hien_hanh"].Visible = false;
+            //dgvPrisonerList.Columns["bien_phap_nghiep_vu"].Visible = false;
+            //dgvPrisonerList.Columns["nguoi_tao"].Visible = false;
+            //dgvPrisonerList.Columns["ngay_tao"].Visible = false;
+            //dgvPrisonerList.Columns["ngay_cap_nhat"].Visible = false;
+            //dgvPrisonerList.Columns["nguoi_cap_nhat"].Visible = false;
+            //dgvPrisonerList.Columns["bien_phap_ky_luat"].Visible = false;
         }
 
         private void AdjustColumnName()
         {
             dgvPrisonerList.Columns["ma_dang_ky"].HeaderText = "Mã đăng ký";
-            dgvPrisonerList.Columns["ma_trai_giam"].HeaderText = "Mã trại giam";
+            dgvPrisonerList.Columns["ma_trai_giam"].HeaderText = "Trại giam";
             dgvPrisonerList.Columns["ngay_thang_nam_sinh"].HeaderText = "Ngày sinh";
             dgvPrisonerList.Columns["ho_va_ten"].HeaderText = "Họ tên";
             dgvPrisonerList.Columns["ten_goi_khac"].HeaderText = "Tên gọi khác";
@@ -138,23 +148,8 @@ namespace QLPN
             dgvPrisonerList.Columns["ngay_bat"].HeaderText = "Ngày bắt";
             dgvPrisonerList.Columns["an_phat"].HeaderText = "Án phạt";
             dgvPrisonerList.Columns["ngay_nhap_trai"].HeaderText = "Ngày nhập trại";
-            dgvPrisonerList.Columns["phan_loai_quan_che"].HeaderText = "Phân loại quản chế";
-            dgvPrisonerList.Columns["ngay_dua_vao_dien_quan_che"].HeaderText = "Ngày đưa vào diện quản chế";
-            dgvPrisonerList.Columns["doi_hien_tai"].HeaderText = "Đội hiện tại";
-            dgvPrisonerList.Columns["buong_so"].HeaderText = "Buồng số";
-            dgvPrisonerList.Columns["phan_trai"].HeaderText = "Phân trại";
-            dgvPrisonerList.Columns["danh_muc"].HeaderText = "Danh mục";
-            dgvPrisonerList.Columns["danh_muc_1"].HeaderText = "Danh mục 1";
-            dgvPrisonerList.Columns["pham_vi_hoat_dong"].HeaderText = "Phạm vi hoạt động";
-            dgvPrisonerList.Columns["bieu_hien_hoat_dong_hien_hanh"].HeaderText = "Biểu hiện hoạt động hiện hành";
-            dgvPrisonerList.Columns["bien_phap_nghiep_vu"].HeaderText = "Biện pháp nghiệp vụ";
-            dgvPrisonerList.Columns["bien_phap_ky_luat"].HeaderText = "Biện pháp kỷ luật";
             dgvPrisonerList.Columns["ngay_dua_ra"].HeaderText = "Ngày đưa ra";
             dgvPrisonerList.Columns["ly_do_dua_ra"].HeaderText = "Lý do đưa ra";
-            dgvPrisonerList.Columns["ngay_tao"].HeaderText = "Ngày tạo";
-            dgvPrisonerList.Columns["nguoi_tao"].HeaderText = "Người tạo";
-            dgvPrisonerList.Columns["ngay_cap_nhat"].HeaderText = "Ngày cập nhật";
-            dgvPrisonerList.Columns["nguoi_cap_nhat"].HeaderText = "Người cập nhật";
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -177,8 +172,7 @@ namespace QLPN
                         }
                         csvWriter.Flush();
                     }
-                    string pass = Util.GetResource("key");
-                    EncDec.Encrypt(tempFile, path, pass);
+                    EncDec.Encrypt(tempFile, path, Util.PRIVATE_KEY);
                     File.Delete(tempFile);
                     MessageBox.Show("Xuất dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } 
@@ -236,8 +230,7 @@ namespace QLPN
 
         private void childForm_Closed(object sender, EventArgs e)
         {
-            List<prison_mst> lsit = _prisonRepository.GetList();
-            dgvPrisonerList.DataSource = lsit;
+            dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(); ;
         }
 
         private void dgvPrisonerList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -267,7 +260,7 @@ namespace QLPN
                         {
                             _prisonRepository.Delete(id);
                         }
-                        dgvPrisonerList.DataSource = _prisonRepository.GetList();
+                        dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay();
                         MessageBox.Show("Xóa dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -314,7 +307,7 @@ namespace QLPN
                     }
                     File.Delete(tempFile);
                     MessageBox.Show("Nhập dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvPrisonerList.DataSource = _prisonRepository.GetList();
+                    dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay();
                    
                 }
             }

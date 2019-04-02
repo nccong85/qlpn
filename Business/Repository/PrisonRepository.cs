@@ -19,8 +19,39 @@ namespace Business.Repository
 
         public List<prison_mst> GetList()
         {
-            //_dbcontext.Entry<prison_mst>().Reload();
             return _dbcontext.prison_mst.AsNoTracking().ToList();
+        }
+
+        public List<PrisonDisplayDto> GetListPrisonToDisplay()
+        {
+            var initQuery = (from pm in _dbcontext.prison_mst
+                             join dm in _dbcontext.division_mst
+                             on new { k1 = pm.ma_trai_giam } equals new { k1 = dm.ma_trai }
+
+                             join cm in _dbcontext.code_mst
+                             on new {k2 = pm.toi_danh} equals new {k2 = cm.code}
+                             where cm.category_id == "11"
+
+                             select new PrisonDisplayDto
+                             {
+                                 id = pm.id,
+                                 ma_dang_ky = pm.ma_dang_ky,
+                                 ma_trai_giam = pm.ma_trai_giam + ":" + dm.ten_trai,
+                                 ngay_thang_nam_sinh = pm.ngay_thang_nam_sinh,
+                                 ho_va_ten = pm.ho_va_ten,
+                                 ten_goi_khac = pm.ten_goi_khac,
+                                 gioi_tinh = pm.gioi_tinh == "01" ? "Nam" : "Nữ",
+                                 que_quan = pm.que_quan,
+                                 noi_dktt = pm.noi_dktt,
+                                 toi_danh = cm.value,
+                                 ngay_bat = pm.ngay_bat,
+                                 an_phat = pm.an_phat,
+                                 ngay_nhap_trai = pm.ngay_nhap_trai,
+                                 ngay_dua_ra = pm.ngay_dua_ra,
+                                 ly_do_dua_ra = pm.ly_do_dua_ra
+                             }).ToList();
+
+            return initQuery;
         }
 
         public void Add(prison_mst addObj)
