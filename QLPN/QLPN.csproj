@@ -76,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ComboBoxUtil.cs" />
-    <Compile Include="App_Code\PrisonDisplay.cs" />
     <Compile Include="App_Code\Util.cs" />
     <Compile Include="DKCNPN.cs">
       <SubType>Form</SubType>

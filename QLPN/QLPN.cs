@@ -106,32 +106,6 @@ namespace QLPN
             dgvPrisonerList.Columns["ly_do_dua_ra"].Width = 150;
 
             dgvPrisonerList.Columns["id"].Visible = false;
-            //dgvPrisonerList.Columns["phan_loai_quan_che"].Visible = false;
-            //dgvPrisonerList.Columns["ngay_dua_vao_dien_quan_che"].Visible = false;
-            //dgvPrisonerList.Columns["ton_giao"].Visible = false;
-            //dgvPrisonerList.Columns["dan_toc"].Visible = false;
-            //dgvPrisonerList.Columns["quoc_tich"].Visible = false;
-            //dgvPrisonerList.Columns["trinh_do_hoc_van"].Visible = false;
-            //dgvPrisonerList.Columns["ngoai_ngu"].Visible = false;
-            //dgvPrisonerList.Columns["ten_cha"].Visible = false;
-            //dgvPrisonerList.Columns["ten_me"].Visible = false;
-            //dgvPrisonerList.Columns["ten_vo_chong"].Visible = false;
-            //dgvPrisonerList.Columns["tien_an"].Visible = false;
-            //dgvPrisonerList.Columns["tien_su"].Visible = false;
-            //dgvPrisonerList.Columns["tom_tat_toi_danh"].Visible = false;
-            //dgvPrisonerList.Columns["doi_hien_tai"].Visible = false;
-            //dgvPrisonerList.Columns["buong_so"].Visible = false;
-            //dgvPrisonerList.Columns["phan_trai"].Visible = false;
-            //dgvPrisonerList.Columns["danh_muc"].Visible = false;
-            //dgvPrisonerList.Columns["danh_muc_1"].Visible = false;
-            //dgvPrisonerList.Columns["pham_vi_hoat_dong"].Visible = false;
-            //dgvPrisonerList.Columns["bieu_hien_hoat_dong_hien_hanh"].Visible = false;
-            //dgvPrisonerList.Columns["bien_phap_nghiep_vu"].Visible = false;
-            //dgvPrisonerList.Columns["nguoi_tao"].Visible = false;
-            //dgvPrisonerList.Columns["ngay_tao"].Visible = false;
-            //dgvPrisonerList.Columns["ngay_cap_nhat"].Visible = false;
-            //dgvPrisonerList.Columns["nguoi_cap_nhat"].Visible = false;
-            //dgvPrisonerList.Columns["bien_phap_ky_luat"].Visible = false;
         }
 
         private void AdjustColumnName()
@@ -287,9 +261,7 @@ namespace QLPN
 
                     tempFile = Path.GetTempFileName();
 
-                    string pass = Util.GetResource("key");
-
-                    EncDec.Decrypt(filePath, tempFile, pass);
+                    EncDec.Decrypt(filePath, tempFile, Util.PRIVATE_KEY);
 
                     Configuration configuration = new Configuration { HasHeaderRecord = false };
                     using (var sr = new StreamReader(tempFile, System.Text.Encoding.UTF8))

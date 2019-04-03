@@ -166,11 +166,13 @@ namespace QLPN
             if (_isUpdateMode)
             {
                 LoadDataToScreen();
+                this.btnDummyRegistration.Visible = false;
             }
             else
             {
                 // SetDummyData();
                 DisableLydoRaTrai();
+                this.btnDummyRegistration.Visible = true;
             }
         }
 
@@ -323,6 +325,13 @@ namespace QLPN
             {
                 isValid = false;
                 MessageBox.Show("Hãy nhập vào mã phạm nhân!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return isValid;
+            }
+
+            if (String.IsNullOrEmpty(prisoner.ho_va_ten))
+            {
+                isValid = false;
+                MessageBox.Show("Hãy nhập vào tên phạm nhân!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return isValid;
             }
 
