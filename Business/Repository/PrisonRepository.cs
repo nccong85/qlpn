@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using CommonLib;
+using DAL;
 using QLPN.DTO;
 using System;
 using System.Collections.Generic;
@@ -22,21 +23,65 @@ namespace Business.Repository
             return _dbcontext.prison_mst.AsNoTracking().ToList();
         }
 
-        public List<PrisonDisplayDto> GetListPrisonToDisplay()
+        public List<prison_mst> GetListForExport(user_mst user)
+        {
+            var query = (from pm in _dbcontext.prison_mst
+                         where String.Equals(user.role, CommonConst.UserRole.ADMIN) || (!String.Equals(user.role, CommonConst.UserRole.ADMIN) && pm.ma_trai_giam == user.dept_cd)
+                         select pm);
+
+            return query.ToList();
+        }
+
+        public List<PrisonDisplayDto> GetListPrisonToDisplay(user_mst user)
+        {
+            var query = (from pm in _dbcontext.prison_mst
+                          join dm in _dbcontext.division_mst
+                          on new { k1 = pm.ma_trai_giam } equals new { k1 = dm.ma_trai }
+
+                          join cm in _dbcontext.code_mst
+                          on new { k2 = pm.toi_danh } equals new { k2 = cm.code }
+                          where (String.Equals(user.role, CommonConst.UserRole.ADMIN) && cm.category_id == CommonLib.CommonConst.CodeMasterCategoryId.PHAN_LOAI_TOI_DANH)
+                          || (!String.Equals(user.role, CommonConst.UserRole.ADMIN) && pm.ma_trai_giam == user.dept_cd && cm.category_id == CommonLib.CommonConst.CodeMasterCategoryId.PHAN_LOAI_TOI_DANH)
+                          
+                          select new PrisonDisplayDto
+                          {
+                              id = pm.id,
+                              ma_dang_ky = pm.ma_dang_ky,
+                              ma_trai_giam = String.Concat(pm.ma_trai_giam, ":", dm.ten_trai),
+                              ngay_thang_nam_sinh = pm.ngay_thang_nam_sinh,
+                              ho_va_ten = pm.ho_va_ten,
+                              ten_goi_khac = pm.ten_goi_khac,
+                              gioi_tinh = pm.gioi_tinh == "01" ? "Nam" : "Nữ",
+                              que_quan = pm.que_quan,
+                              noi_dktt = pm.noi_dktt,
+                              toi_danh = cm.value,
+                              ngay_bat = pm.ngay_bat,
+                              an_phat = pm.an_phat,
+                              ngay_nhap_trai = pm.ngay_nhap_trai,
+                              ngay_dua_ra = pm.ngay_dua_ra,
+                              ly_do_dua_ra = pm.ly_do_dua_ra
+                          });
+
+            return query.ToList();
+        }
+
+        public List<PrisonDisplayDto> GetListPrisonToDisplay(string divisionCd)
         {
             var initQuery = (from pm in _dbcontext.prison_mst
                              join dm in _dbcontext.division_mst
                              on new { k1 = pm.ma_trai_giam } equals new { k1 = dm.ma_trai }
 
                              join cm in _dbcontext.code_mst
-                             on new {k2 = pm.toi_danh} equals new {k2 = cm.code}
-                             where cm.category_id == "11"
+                             on new { k2 = pm.toi_danh } equals new { k2 = cm.code }
+
+                             where cm.category_id == CommonConst.CodeMasterCategoryId.PHAN_LOAI_TOI_DANH
+                             && pm.ma_trai_giam == divisionCd
 
                              select new PrisonDisplayDto
                              {
                                  id = pm.id,
                                  ma_dang_ky = pm.ma_dang_ky,
-                                 ma_trai_giam = pm.ma_trai_giam + ":" + dm.ten_trai,
+                                 ma_trai_giam = String.Concat(pm.ma_trai_giam, ":", dm.ten_trai),
                                  ngay_thang_nam_sinh = pm.ngay_thang_nam_sinh,
                                  ho_va_ten = pm.ho_va_ten,
                                  ten_goi_khac = pm.ten_goi_khac,
@@ -126,9 +171,9 @@ namespace Business.Repository
             }
         }
 
-        public List<prison_mst> SearchPrison(SearchDto search)
+        public List<PrisonDisplayDto> SearchPrison(SearchDto search, user_mst user)
         {
-            var result = this.GetList();
+            var result = this.GetListPrisonToDisplay(user);
 
             if (!String.IsNullOrEmpty(search.MaDangKy))
             {

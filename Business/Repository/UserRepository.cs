@@ -18,7 +18,6 @@ namespace Business.Repository
 
         public List<user_mst> GetList()
         {
-            //_dbcontext.Entry<user_mst>().Reload();
             return _dbcontext.user_mst.AsNoTracking().ToList();
         }
 

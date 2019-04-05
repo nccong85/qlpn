@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace QLPN
 {
-    public partial class Login : Form
+    public partial class LoginFrm : Form
     {
         private readonly UserRepository _userRepository;
         private readonly Entities _dbContext;
 
-        public Login()
+        public LoginFrm()
         {
             InitializeComponent();
             _dbContext = new Entities();
@@ -51,10 +51,10 @@ namespace QLPN
             string pass = EncDec.Encrypt(txtPassword.Text.Trim(), Util.PRIVATE_KEY);
             if (_userRepository.IsAuthenticate(txtUserName.Text.Trim(), pass))
             {
-                QLPN form = new QLPN();
+                MainFrm form = new MainFrm();
                 form.UserLogin = _userRepository.GetUserByUsername(txtUserName.Text.Trim());
                 this.Hide();
-                form.Show();
+                form.ShowDialog();
             }
             else
             {

@@ -82,7 +82,7 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="username" Type="varchar" MaxLength="64" />
           <Property Name="password" Type="varchar" MaxLength="255" />
           <Property Name="name" Type="nvarchar" MaxLength="255" />
-          <Property Name="dept_id" Type="varchar" MaxLength="16" />
+          <Property Name="dept_cd" Type="varchar" MaxLength="16" />
           <Property Name="dept_name" Type="nvarchar" MaxLength="255" />
           <Property Name="email" Type="nvarchar" MaxLength="255" />
           <Property Name="tel" Type="nvarchar" MaxLength="64" />
@@ -195,7 +195,7 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <Property Name="username" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="dept_id" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="dept_cd" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="dept_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="tel" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
@@ -285,6 +285,7 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
           <EntitySetMapping Name="user_mst">
             <EntityTypeMapping TypeName="qlpn_dbModel.user_mst">
               <MappingFragment StoreEntitySet="user_mst">
+                <ScalarProperty Name="dept_cd" ColumnName="dept_cd" />
                 <ScalarProperty Name="updated_id" ColumnName="updated_id" />
                 <ScalarProperty Name="created_id" ColumnName="created_id" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
@@ -296,7 +297,6 @@ warning 6002: The table/view 'qlpn_db.dbo.code_mst' does not have a primary key 
                 <ScalarProperty Name="tel" ColumnName="tel" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="dept_name" ColumnName="dept_name" />
-                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="username" ColumnName="username" />

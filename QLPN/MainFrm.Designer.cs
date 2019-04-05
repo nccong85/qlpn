@@ -1,6 +1,6 @@
 ﻿namespace QLPN
 {
-    partial class QLPN
+    partial class MainFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -48,6 +48,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.searchTab = new System.Windows.Forms.TabControl();
+            this.btnReLogin = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnUserManagement = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrisonerList)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.searchTab.SuspendLayout();
@@ -60,7 +63,7 @@
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnImport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImport.Location = new System.Drawing.Point(201, 143);
+            this.btnImport.Location = new System.Drawing.Point(592, 140);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(100, 26);
             this.btnImport.TabIndex = 0;
@@ -75,7 +78,7 @@
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnExport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnExport.Location = new System.Drawing.Point(307, 143);
+            this.btnExport.Location = new System.Drawing.Point(698, 140);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(100, 26);
             this.btnExport.TabIndex = 1;
@@ -90,7 +93,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAdd.Location = new System.Drawing.Point(413, 143);
+            this.btnAdd.Location = new System.Drawing.Point(380, 618);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 26);
             this.btnAdd.TabIndex = 1;
@@ -105,7 +108,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdate.Location = new System.Drawing.Point(519, 143);
+            this.btnUpdate.Location = new System.Drawing.Point(486, 618);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 26);
             this.btnUpdate.TabIndex = 2;
@@ -120,7 +123,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDelete.Location = new System.Drawing.Point(625, 143);
+            this.btnDelete.Location = new System.Drawing.Point(592, 618);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 26);
             this.btnDelete.TabIndex = 3;
@@ -194,27 +197,27 @@
             this.dgvPrisonerList.AllowUserToResizeColumns = false;
             this.dgvPrisonerList.AllowUserToResizeRows = false;
             this.dgvPrisonerList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPrisonerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPrisonerList.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPrisonerList.Location = new System.Drawing.Point(22, 178);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPrisonerList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPrisonerList.Location = new System.Drawing.Point(12, 172);
             this.dgvPrisonerList.Name = "dgvPrisonerList";
             this.dgvPrisonerList.ReadOnly = true;
-            this.dgvPrisonerList.Size = new System.Drawing.Size(703, 513);
+            this.dgvPrisonerList.Size = new System.Drawing.Size(786, 440);
             this.dgvPrisonerList.TabIndex = 6;
             this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
             // 
@@ -228,7 +231,7 @@
             this.Header.ForeColor = System.Drawing.Color.DimGray;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(745, 31);
+            this.Header.Size = new System.Drawing.Size(808, 31);
             this.Header.TabIndex = 7;
             this.Header.Text = "Quản lý phạm nhân";
             this.Header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -245,7 +248,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(699, 71);
+            this.tabPage1.Size = new System.Drawing.Size(782, 71);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tìm kiếm";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -278,29 +281,77 @@
             // 
             this.searchTab.Controls.Add(this.tabPage1);
             this.searchTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTab.Location = new System.Drawing.Point(22, 37);
+            this.searchTab.Location = new System.Drawing.Point(12, 35);
             this.searchTab.Name = "searchTab";
             this.searchTab.SelectedIndex = 0;
-            this.searchTab.Size = new System.Drawing.Size(707, 100);
+            this.searchTab.Size = new System.Drawing.Size(790, 100);
             this.searchTab.TabIndex = 8;
             // 
-            // QLPN
+            // btnReLogin
+            // 
+            this.btnReLogin.BackColor = System.Drawing.SystemColors.Control;
+            this.btnReLogin.FlatAppearance.BorderSize = 2;
+            this.btnReLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnReLogin.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReLogin.Location = new System.Drawing.Point(12, 618);
+            this.btnReLogin.Name = "btnReLogin";
+            this.btnReLogin.Size = new System.Drawing.Size(100, 26);
+            this.btnReLogin.TabIndex = 9;
+            this.btnReLogin.Text = "Đăng nhập lại";
+            this.btnReLogin.UseVisualStyleBackColor = false;
+            this.btnReLogin.Click += new System.EventHandler(this.btnReLogin_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 2;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnClose.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnClose.Location = new System.Drawing.Point(698, 618);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(100, 26);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Text = "Đóng";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnUserManagement
+            // 
+            this.btnUserManagement.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUserManagement.FlatAppearance.BorderSize = 2;
+            this.btnUserManagement.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnUserManagement.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnUserManagement.Location = new System.Drawing.Point(465, 140);
+            this.btnUserManagement.Name = "btnUserManagement";
+            this.btnUserManagement.Size = new System.Drawing.Size(121, 26);
+            this.btnUserManagement.TabIndex = 0;
+            this.btnUserManagement.Text = "Thêm người dùng";
+            this.btnUserManagement.UseVisualStyleBackColor = false;
+            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
+            // 
+            // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(745, 707);
+            this.ClientSize = new System.Drawing.Size(808, 651);
+            this.Controls.Add(this.btnReLogin);
             this.Controls.Add(this.searchTab);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.dgvPrisonerList);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.btnUserManagement);
             this.Controls.Add(this.btnImport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "QLPN";
+            this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý phạm nhân";
             this.Load += new System.EventHandler(this.QLPN_Load);
@@ -333,6 +384,9 @@
         private System.Windows.Forms.TabControl searchTab;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnReLogin;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnUserManagement;
     }
 }
 

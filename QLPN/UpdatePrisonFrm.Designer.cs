@@ -1,6 +1,6 @@
 ﻿namespace QLPN
 {
-    partial class DKCNPN
+    partial class UpdatePrisonFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -267,7 +267,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.BackColor = System.Drawing.Color.LightCoral;
+            this.txtHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.Location = new System.Drawing.Point(119, 38);
             this.txtHoTen.MaxLength = 255;
@@ -671,7 +671,7 @@
             // 
             // txtNoiDkHktt
             // 
-            this.txtNoiDkHktt.BackColor = System.Drawing.Color.LightCoral;
+            this.txtNoiDkHktt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtNoiDkHktt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiDkHktt.Location = new System.Drawing.Point(119, 166);
             this.txtNoiDkHktt.MaxLength = 255;
@@ -766,7 +766,7 @@
             // 
             // txtQueQuan
             // 
-            this.txtQueQuan.BackColor = System.Drawing.Color.LightCoral;
+            this.txtQueQuan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtQueQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQueQuan.Location = new System.Drawing.Point(119, 136);
             this.txtQueQuan.MaxLength = 255;
@@ -858,7 +858,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(274, 17);
+            this.label3.Location = new System.Drawing.Point(274, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 15);
             this.label3.TabIndex = 2;
@@ -866,7 +866,7 @@
             // 
             // txtMaPN
             // 
-            this.txtMaPN.BackColor = System.Drawing.Color.LightCoral;
+            this.txtMaPN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaPN.Location = new System.Drawing.Point(119, 7);
             this.txtMaPN.MaxLength = 16;
@@ -1007,7 +1007,7 @@
             this.panel2.Size = new System.Drawing.Size(794, 71);
             this.panel2.TabIndex = 30;
             // 
-            // DKCNPN
+            // UpdatePrisonFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1021,10 +1021,10 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "DKCNPN";
+            this.Name = "UpdatePrisonFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DKCNPN";
+            this.Text = "Cập nhật thông tin phạm nhân";
             this.Load += new System.EventHandler(this.DKCNPN_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

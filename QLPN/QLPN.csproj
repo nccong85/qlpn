@@ -77,32 +77,38 @@
   <ItemGroup>
     <Compile Include="App_Code\ComboBoxUtil.cs" />
     <Compile Include="App_Code\Util.cs" />
-    <Compile Include="DKCNPN.cs">
+    <Compile Include="UpdatePrisonFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DKCNPN.Designer.cs">
-      <DependentUpon>DKCNPN.cs</DependentUpon>
+    <Compile Include="UpdatePrisonFrm.Designer.cs">
+      <DependentUpon>UpdatePrisonFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Prisoner.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="LoginFrm.Designer.cs">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLPN.cs">
+    <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLPN.Designer.cs">
-      <DependentUpon>QLPN.cs</DependentUpon>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DKCNPN.resx">
-      <DependentUpon>DKCNPN.cs</DependentUpon>
+    <Compile Include="UserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFrm.Designer.cs">
+      <DependentUpon>UserFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UpdatePrisonFrm.resx">
+      <DependentUpon>UpdatePrisonFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="LoginFrm.resx">
+      <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,8 +120,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="QLPN.resx">
-      <DependentUpon>QLPN.cs</DependentUpon>
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFrm.resx">
+      <DependentUpon>UserFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

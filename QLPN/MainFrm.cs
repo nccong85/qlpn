@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace QLPN
 {
-    public partial class QLPN : Form
+    public partial class MainFrm : Form
     {
         private readonly PrisonRepository _prisonRepository;
         private readonly Entities _dbContext;
@@ -23,7 +23,7 @@ namespace QLPN
         public user_mst UserLogin { get => _user; set => _user = value; }
         private user_mst _user;
 
-        public QLPN()
+        public MainFrm()
         {
             InitializeComponent();
             _dbContext = new Entities();
@@ -49,7 +49,7 @@ namespace QLPN
         private void QLPN_Load(object sender, EventArgs e)
         {
             InitScreen();
-            dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay();
+            dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(this._user);
             this.AdjustColumnIndex();
             this.AdjustColumnName();
         }
@@ -58,7 +58,7 @@ namespace QLPN
         {
             txtSearchPrisonId.Text = String.Empty;
             txtSearchPrisonName.Text = String.Empty;
-            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbSearchDivisonId);
+            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbSearchDivisonId,this._user);
 
             cmbSearchDivisonId.SelectedItem = null;
             cmbSearchDivisonId.SelectedText = CommonConst.BLANK;
@@ -160,16 +160,13 @@ namespace QLPN
 
         private List<prison_mst> GetDataForExport()
         {
-            return _prisonRepository.GetList();
+            return _prisonRepository.GetListForExport(this._user);
         }
 
-        private void ExportCsv()
-        {
-
-        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            DKCNPN form = new DKCNPN();
+            UpdatePrisonFrm form = new UpdatePrisonFrm();
+            form.LoginUser = this._user;
             form.IsUpdateMode = false;
 
             form.FormClosed += childForm_Closed;
@@ -194,7 +191,8 @@ namespace QLPN
 
         private void OpenEditForm(string maPn)
         {
-            DKCNPN form = new DKCNPN();
+            UpdatePrisonFrm form = new UpdatePrisonFrm();
+            form.LoginUser = this._user;
             form.IsUpdateMode = true;
             form.MaPhamNhan = maPn;
 
@@ -204,7 +202,7 @@ namespace QLPN
 
         private void childForm_Closed(object sender, EventArgs e)
         {
-            dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(); ;
+            dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(this._user); ;
         }
 
         private void dgvPrisonerList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -234,7 +232,7 @@ namespace QLPN
                         {
                             _prisonRepository.Delete(id);
                         }
-                        dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay();
+                        dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(this._user);
                         MessageBox.Show("Xóa dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -279,7 +277,7 @@ namespace QLPN
                     }
                     File.Delete(tempFile);
                     MessageBox.Show("Nhập dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay();
+                    dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(this._user);
                    
                 }
             }
@@ -314,7 +312,24 @@ namespace QLPN
             search.TenPhamNhan = txtSearchPrisonName.Text.Trim();
             search.MaTraiGiam = cmbSearchDivisonId.SelectedValue == null ? String.Empty : cmbSearchDivisonId.SelectedValue.ToString();
 
-            dgvPrisonerList.DataSource = _prisonRepository.SearchPrison(search);
+            dgvPrisonerList.DataSource = _prisonRepository.SearchPrison(search,this._user);
+        }
+
+        private void btnReLogin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            UserFrm user = new UserFrm();
+            user.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
         }
     }
 }

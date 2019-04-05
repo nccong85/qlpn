@@ -1,6 +1,6 @@
 ﻿namespace QLPN
 {
-    partial class Login
+    partial class LoginFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,12 +34,13 @@
             this.lblError = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.Location = new System.Drawing.Point(127, 95);
+            this.btnLogin.Location = new System.Drawing.Point(65, 106);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(91, 28);
             this.btnLogin.TabIndex = 9;
@@ -96,12 +97,25 @@
             this.lblPassword.TabIndex = 12;
             this.lblPassword.Text = "Mật khẩu";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Location = new System.Drawing.Point(176, 106);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 28);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Bỏ qua";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(336, 146);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblError);
@@ -128,5 +142,6 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

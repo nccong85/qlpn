@@ -126,13 +126,14 @@ namespace QLPN.App_Code
             cmb.DisplayMember = "Text";
         }
         
-        public static void SetDanhSachTraiGiam(Entities dbContext,ComboBox cmb)
+        public static void SetDanhSachTraiGiam(Entities dbContext, ComboBox cmb, user_mst user)
         {
-            List<ListItemEx> divisionList = GetDivisonList(dbContext);
+            List<ListItemEx> divisionList = GetDivisonList(dbContext, user);
             cmb.DataSource = divisionList;
             cmb.ValueMember = "Value";
             cmb.DisplayMember = "Text";
         }
+
         private static List<ListItemEx> GetCodeListExByCategoryId(Entities dbcontext, string categoryId)
         {
             CodeMasterRepository codeMasterRepository = new CodeMasterRepository(dbcontext);
@@ -145,10 +146,10 @@ namespace QLPN.App_Code
             return codeMasterRepository.GetListItemByCategoryId(categoryId);
         }
 
-        private static List<ListItemEx> GetDivisonList(Entities dbcontext)
+        private static List<ListItemEx> GetDivisonList(Entities dbcontext,user_mst user)
         {
             DivisionMasterRepositoty divisionMasterRepositoty = new DivisionMasterRepositoty(dbcontext);
-            return divisionMasterRepositoty.GetListWithCode();
+            return divisionMasterRepositoty.GetListWithCode(user);
         }
 
         private static void SettingComboBox<T>(ComboBox cmb , List<T>list)

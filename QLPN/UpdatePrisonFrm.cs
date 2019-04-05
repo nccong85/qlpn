@@ -15,33 +15,25 @@ using CommonLib.Model.DTO;
 
 namespace QLPN
 {
-    public partial class DKCNPN : Form
+    public partial class UpdatePrisonFrm : Form
     {
         public bool IsUpdateMode { get => _isUpdateMode; set => _isUpdateMode = value; }
         public string MaPhamNhan { get => _maPhamNhan; set => _maPhamNhan = value; }
-        //public delegate void UpdateDelegate(object sender, EventArgs args);
-        //public event UpdateDelegate UpdateEventHandler;
+        public user_mst LoginUser { get => _user; set => _user = value; }
 
         private readonly Entities _dbContext;
         private PrisonRepository _prisonRepository;
         private bool _isUpdateMode = false;
         private string _maPhamNhan = CommonConst.BLANK;
         private prison_mst _prisoner = null;
-        //private QLPN _qlpnForm = null;
+        private user_mst _user = null;
 
-        public DKCNPN()
+        public UpdatePrisonFrm()
         {
             InitializeComponent();
             _dbContext = new Entities();
             _prisonRepository = new PrisonRepository(_dbContext);
-            //_qlpnForm = frm;
         }
-
-        //protected void raiseUpdate()
-        //{
-        //    EventArgs args = new EventArgs();
-        //    UpdateEventHandler?.Invoke(this, args);
-        //}
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -67,7 +59,6 @@ namespace QLPN
             {
                 return;
             }
-
             MessageBox.Show("Cập nhật thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -170,7 +161,6 @@ namespace QLPN
             }
             else
             {
-                // SetDummyData();
                 DisableLydoRaTrai();
                 this.btnDummyRegistration.Visible = true;
             }
@@ -277,7 +267,7 @@ namespace QLPN
             ComboBoxUtil.SetDanhSachBuongGiam(_dbContext, cmbBuongGiam);
             ComboBoxUtil.SetDanhSachPhanKhu(_dbContext, cmbPhanTrai);
             ComboBoxUtil.SetDanhSachDanhMuc1(cmbDanhMuc1, cmbDanhMuc.SelectedValue.ToString());
-            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbTraiGiam);
+            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbTraiGiam, this._user);
 
             ClearScreen();
 

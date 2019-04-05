@@ -39,6 +39,13 @@ namespace CommonLib
             public const string PHAN_LOAI_PHAN_KHU = "13";
         }
 
+        public class UserRole
+        {
+            public const string ADMIN = "1";
+
+            public const string NORMAL_USER = "2";
+        }
+
         public const string GIOI_TINH_NAM = "01";
 
         public const string GIOI_TINH_NU = "02";

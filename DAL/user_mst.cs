@@ -18,7 +18,7 @@ namespace DAL
         public string username { get; set; }
         public string password { get; set; }
         public string name { get; set; }
-        public string dept_id { get; set; }
+        public string dept_cd { get; set; }
         public string dept_name { get; set; }
         public string email { get; set; }
         public string tel { get; set; }
