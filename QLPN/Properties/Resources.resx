@@ -117,7 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CM_BTN_ADD" xml:space="preserve">
+    <value>Thêm mới</value>
+  </data>
+  <data name="CM_BTN_CLOSE" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="CM_BTN_DELETE" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="CM_BTN_UPDATE" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="CM_MSG_DUPLICATE" xml:space="preserve">
+    <value>{0}  đã tồn tại.</value>
+  </data>
+  <data name="CM_MSG_HANDLE_FAILED" xml:space="preserve">
+    <value>{0} thất bại.\n</value>
+  </data>
+  <data name="CM_MSG_HANDLE_SUCCESS" xml:space="preserve">
+    <value>{0} thành công.</value>
+  </data>
+  <data name="CM_MSG_REQUIRED" xml:space="preserve">
+    <value>Vui lòng nhập {0}.</value>
+  </data>
+  <data name="CM_TITLE_CONFIRM" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="ITEM_ACTION_ADD" xml:space="preserve">
+    <value>Thêm mới</value>
+  </data>
+  <data name="ITEM_ACTION_DELETE" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="ITEM_ACTION_EXPORT" xml:space="preserve">
+    <value>Xuất dữ liệu</value>
+  </data>
+  <data name="ITEM_ACTION_IMPORT" xml:space="preserve">
+    <value>Nhập dữ liệu</value>
+  </data>
+  <data name="ITEM_ACTION_UPDATE" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="ITEM_PRISON_ID" xml:space="preserve">
+    <value>mã phạm nhân</value>
+  </data>
+  <data name="ITEM_PRISON_ID_UPPER" xml:space="preserve">
+    <value>Mã phạm nhân</value>
+  </data>
+  <data name="ITEM_PRISON_NAME" xml:space="preserve">
+    <value>tên phạm nhân</value>
+  </data>
+  <data name="ITEM_PRISON_RESOND_OUT" xml:space="preserve">
+    <value>lý do ra trại</value>
+  </data>
   <data name="key" xml:space="preserve">
     <value>DhSNGJFrnN</value>
+  </data>
+  <data name="MAIN_MSG_002" xml:space="preserve">
+    <value>Vui lòng chỉ chọn 1 dòng trên danh sách.</value>
+  </data>
+  <data name="MAIN_MSG_003" xml:space="preserve">
+    <value>Vui lòng chọn dòng muốn xóa trên danh sách.</value>
+  </data>
+  <data name="MAIN_MSG_004" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa dòng này không?</value>
+  </data>
+  <data name="PRISON_MSG_001" xml:space="preserve">
+    <value>Ngày nhập trại chưa chính xác. \nNgày nhập trại phải sau ngày bắt.</value>
+  </data>
+  <data name="PRISON_MSG_002" xml:space="preserve">
+    <value>Ngày đưa vào diện quản chế chưa chính xác. \nNgày đưa vào diện quản chế phải sau ngày nhập trại.</value>
+  </data>
+  <data name="PRISON_MSG_005" xml:space="preserve">
+    <value>Mã phạm nhân đã tồn tại.</value>
+  </data>
+  <data name="PRISON_MSG_006" xml:space="preserve">
+    <value>Vui lòng nhập vào vào lý do ra trại.</value>
+  </data>
+  <data name="CM_MSG_VALIDATE_HEADER" xml:space="preserve">
+    <value>Vui lòng kiểm tra các mục sau.</value>
+  </data>
+  <data name="CM_TITLE_ERROR" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="CM_TITLE_INFOR" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="CM_TITLE_SYSTEM_ERR" xml:space="preserve">
+    <value>Có lỗi hệ thống.Vui lòng liên hệ người quản trị.</value>
+  </data>
+  <data name="CM_TITLE_WARNING" xml:space="preserve">
+    <value>Cảnh báo</value>
+  </data>
+  <data name="ITEM_USER_NAME_UPPER" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="ITEM_USER_PASSWORD_UPPER" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="ITEM_USER_USERNAME_UPPER" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="USER_ACTION_ADD" xml:space="preserve">
+    <value>Thêm mới người dùng</value>
+  </data>
+  <data name="USER_ACTION_DELETE" xml:space="preserve">
+    <value>Xóa người dùng</value>
+  </data>
+  <data name="USER_ACTION_UPDATE" xml:space="preserve">
+    <value>Cập nhật người dùng</value>
+  </data>
+  <data name="CM_MSG_SELECT_ROW" xml:space="preserve">
+    <value>Vui lòng chọn 1 dòng trên danh sách.</value>
+  </data>
+  <data name="LOGIN_MSG_001" xml:space="preserve">
+    <value>Mật khẩu không đúng hoặc tài khoản của bạn bị khóa.\n Vui lòng liên lạc tới người quản trị.</value>
+  </data>
+  <data name="USER_ROLE_ADMIN" xml:space="preserve">
+    <value>Người quản trị</value>
+  </data>
+  <data name="USER_ROLE_NORMAL" xml:space="preserve">
+    <value>Người dùng thường</value>
+  </data>
+  <data name="USER_STATUS_ACTIVE" xml:space="preserve">
+    <value>Có hiệu lực</value>
+  </data>
+  <data name="USER_STATUS_INACTIVE" xml:space="preserve">
+    <value>Không có hiệu lực</value>
   </data>
 </root>

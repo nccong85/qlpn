@@ -217,7 +217,7 @@
             this.dgvPrisonerList.Location = new System.Drawing.Point(12, 172);
             this.dgvPrisonerList.Name = "dgvPrisonerList";
             this.dgvPrisonerList.ReadOnly = true;
-            this.dgvPrisonerList.Size = new System.Drawing.Size(786, 440);
+            this.dgvPrisonerList.Size = new System.Drawing.Size(786, 363);
             this.dgvPrisonerList.TabIndex = 6;
             this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
             // 
@@ -231,7 +231,7 @@
             this.Header.ForeColor = System.Drawing.Color.DimGray;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(808, 31);
+            this.Header.Size = new System.Drawing.Size(809, 31);
             this.Header.TabIndex = 7;
             this.Header.Text = "Quản lý phạm nhân";
             this.Header.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -247,7 +247,7 @@
             this.tabPage1.Controls.Add(this.txtSearchPrisonName);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage1.Size = new System.Drawing.Size(782, 71);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tìm kiếm";
@@ -337,7 +337,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(808, 651);
+            this.ClientSize = new System.Drawing.Size(809, 537);
             this.Controls.Add(this.btnReLogin);
             this.Controls.Add(this.searchTab);
             this.Controls.Add(this.Header);

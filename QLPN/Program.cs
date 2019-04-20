@@ -16,7 +16,7 @@ namespace QLPN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserFrm());
+            Application.Run(new LoginFrm());
         }
     }
 }

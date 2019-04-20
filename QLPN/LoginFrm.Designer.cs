@@ -54,7 +54,7 @@
             this.txtPassword.Location = new System.Drawing.Point(128, 65);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(139, 23);
+            this.txtPassword.Size = new System.Drawing.Size(139, 30);
             this.txtPassword.TabIndex = 8;
             // 
             // txtUserName
@@ -63,7 +63,7 @@
             this.txtUserName.Location = new System.Drawing.Point(128, 34);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(139, 23);
+            this.txtUserName.Size = new System.Drawing.Size(139, 30);
             this.txtUserName.TabIndex = 7;
             // 
             // lblError
@@ -73,7 +73,7 @@
             this.lblError.ForeColor = System.Drawing.Color.Crimson;
             this.lblError.Location = new System.Drawing.Point(139, 10);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(66, 15);
+            this.lblError.Size = new System.Drawing.Size(97, 22);
             this.lblError.TabIndex = 10;
             this.lblError.Text = "Thông báo";
             // 
@@ -83,7 +83,7 @@
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblUserName.Location = new System.Drawing.Point(61, 36);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(19, 15);
+            this.lblUserName.Size = new System.Drawing.Size(27, 22);
             this.lblUserName.TabIndex = 11;
             this.lblUserName.Text = "ID";
             // 
@@ -93,12 +93,13 @@
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblPassword.Location = new System.Drawing.Point(62, 68);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(58, 15);
+            this.lblPassword.Size = new System.Drawing.Size(83, 22);
             this.lblPassword.TabIndex = 12;
             this.lblPassword.Text = "Mật khẩu";
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Location = new System.Drawing.Point(176, 106);
             this.btnCancel.Name = "btnCancel";
@@ -106,11 +107,12 @@
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Bỏ qua";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // Login
+            // LoginFrm
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CancelButton = this.btnCancel;
@@ -125,7 +127,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Login";
+            this.Name = "LoginFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.Login_Load);

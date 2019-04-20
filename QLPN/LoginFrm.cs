@@ -2,6 +2,7 @@
 using CommonLib;
 using DAL;
 using QLPN.App_Code;
+using QLPN.Properties;
 using System;
 using System.Windows.Forms;
 
@@ -58,13 +59,18 @@ namespace QLPN
             }
             else
             {
-                lblError.Text = "Đăng nhập thất bại!!";
+                lblError.Text = Resources.LOGIN_MSG_001;
             }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             InitScreen();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

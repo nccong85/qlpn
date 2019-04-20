@@ -6,6 +6,7 @@ using CsvHelper.Configuration;
 using DAL;
 using QLPN.App_Code;
 using QLPN.DTO;
+using QLPN.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -58,7 +59,7 @@ namespace QLPN
         {
             txtSearchPrisonId.Text = String.Empty;
             txtSearchPrisonName.Text = String.Empty;
-            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbSearchDivisonId,this._user);
+            ComboBoxUtil.SetDanhSachTraiGiam(_dbContext, cmbSearchDivisonId, this._user);
 
             cmbSearchDivisonId.SelectedItem = null;
             cmbSearchDivisonId.SelectedText = CommonConst.BLANK;
@@ -148,12 +149,12 @@ namespace QLPN
                     }
                     EncDec.Encrypt(tempFile, path, Util.PRIVATE_KEY);
                     File.Delete(tempFile);
-                    MessageBox.Show("Xuất dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } 
+                    MessageBox.Show(String.Format(Resources.CM_MSG_HANDLE_SUCCESS, Resources.ITEM_ACTION_EXPORT), CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Xuất dữ liệu thất bại!\n" + ex.ToString(), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(String.Format(String.Concat(Resources.CM_MSG_HANDLE_FAILED, ex.Message), Resources.ITEM_ACTION_EXPORT), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -165,7 +166,7 @@ namespace QLPN
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            UpdatePrisonFrm form = new UpdatePrisonFrm();
+            PrisonFrm form = new PrisonFrm();
             form.LoginUser = this._user;
             form.IsUpdateMode = false;
 
@@ -177,11 +178,11 @@ namespace QLPN
         {
             if (this.dgvPrisonerList.CurrentRow == null)
             {
-                MessageBox.Show("Vui lòng chọn 1 dòng trên danh sách!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.CM_MSG_SELECT_ROW, CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (dgvPrisonerList.SelectedRows.Count > 1)
             {
-                MessageBox.Show("Vui lòng chỉ chọn 1 dòng trên danh sách!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.MAIN_MSG_002, CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -191,7 +192,7 @@ namespace QLPN
 
         private void OpenEditForm(string maPn)
         {
-            UpdatePrisonFrm form = new UpdatePrisonFrm();
+            PrisonFrm form = new PrisonFrm();
             form.LoginUser = this._user;
             form.IsUpdateMode = true;
             form.MaPhamNhan = maPn;
@@ -214,7 +215,7 @@ namespace QLPN
         {
             if (dgvPrisonerList.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn 1 dòng trên danh sách!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.MAIN_MSG_003, CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -223,7 +224,7 @@ namespace QLPN
                 {
                     idList.Add(row.Cells[1].Value.ToString());
                 }
-                DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dr = MessageBox.Show(Resources.MAIN_MSG_004, Resources.CM_TITLE_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dr == DialogResult.Yes)
                 {
                     try
@@ -233,11 +234,11 @@ namespace QLPN
                             _prisonRepository.Delete(id);
                         }
                         dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(this._user);
-                        MessageBox.Show("Xóa dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(String.Format(Resources.CM_MSG_HANDLE_SUCCESS, Resources.ITEM_ACTION_DELETE), CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Xóa thất bại!\n" + ex.ToString(), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(String.Format(String.Concat(Resources.CM_MSG_HANDLE_FAILED, ex.Message), Resources.ITEM_ACTION_DELETE), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -265,7 +266,7 @@ namespace QLPN
                     using (var sr = new StreamReader(tempFile, System.Text.Encoding.UTF8))
                     {
                         var reader = new CsvReader(sr, configuration);
-                        
+
                         //CSVReader will now read the whole file into an enumerable
                         IEnumerable<prison_mst> records = reader.GetRecords<prison_mst>();
 
@@ -276,14 +277,14 @@ namespace QLPN
                         }
                     }
                     File.Delete(tempFile);
-                    MessageBox.Show("Nhập dữ liệu thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(String.Format(Resources.CM_MSG_HANDLE_SUCCESS, Resources.ITEM_ACTION_IMPORT), CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgvPrisonerList.DataSource = _prisonRepository.GetListPrisonToDisplay(this._user);
-                   
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nhập dữ liệu thất bại!\n" + ex.ToString(), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(String.Format(String.Concat(Resources.CM_MSG_HANDLE_FAILED, ex.Message), Resources.ITEM_ACTION_IMPORT), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -312,7 +313,7 @@ namespace QLPN
             search.TenPhamNhan = txtSearchPrisonName.Text.Trim();
             search.MaTraiGiam = cmbSearchDivisonId.SelectedValue == null ? String.Empty : cmbSearchDivisonId.SelectedValue.ToString();
 
-            dgvPrisonerList.DataSource = _prisonRepository.SearchPrison(search,this._user);
+            dgvPrisonerList.DataSource = _prisonRepository.SearchPrison(search, this._user);
         }
 
         private void btnReLogin_Click(object sender, EventArgs e)
@@ -323,6 +324,7 @@ namespace QLPN
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
             UserFrm user = new UserFrm();
+            user.LoginUser = this._user;
             user.ShowDialog();
         }
 

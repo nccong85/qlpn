@@ -61,11 +61,389 @@ namespace QLPN.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thêm mới.
+        /// </summary>
+        internal static string CM_BTN_ADD {
+            get {
+                return ResourceManager.GetString("CM_BTN_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đóng.
+        /// </summary>
+        internal static string CM_BTN_CLOSE {
+            get {
+                return ResourceManager.GetString("CM_BTN_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xóa.
+        /// </summary>
+        internal static string CM_BTN_DELETE {
+            get {
+                return ResourceManager.GetString("CM_BTN_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cập nhật.
+        /// </summary>
+        internal static string CM_BTN_UPDATE {
+            get {
+                return ResourceManager.GetString("CM_BTN_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}  đã tồn tại..
+        /// </summary>
+        internal static string CM_MSG_DUPLICATE {
+            get {
+                return ResourceManager.GetString("CM_MSG_DUPLICATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} thất bại.\n.
+        /// </summary>
+        internal static string CM_MSG_HANDLE_FAILED {
+            get {
+                return ResourceManager.GetString("CM_MSG_HANDLE_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} thành công..
+        /// </summary>
+        internal static string CM_MSG_HANDLE_SUCCESS {
+            get {
+                return ResourceManager.GetString("CM_MSG_HANDLE_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng nhập {0}..
+        /// </summary>
+        internal static string CM_MSG_REQUIRED {
+            get {
+                return ResourceManager.GetString("CM_MSG_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chọn 1 dòng trên danh sách..
+        /// </summary>
+        internal static string CM_MSG_SELECT_ROW {
+            get {
+                return ResourceManager.GetString("CM_MSG_SELECT_ROW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng kiểm tra các mục sau..
+        /// </summary>
+        internal static string CM_MSG_VALIDATE_HEADER {
+            get {
+                return ResourceManager.GetString("CM_MSG_VALIDATE_HEADER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xác nhận.
+        /// </summary>
+        internal static string CM_TITLE_CONFIRM {
+            get {
+                return ResourceManager.GetString("CM_TITLE_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lỗi.
+        /// </summary>
+        internal static string CM_TITLE_ERROR {
+            get {
+                return ResourceManager.GetString("CM_TITLE_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông báo.
+        /// </summary>
+        internal static string CM_TITLE_INFOR {
+            get {
+                return ResourceManager.GetString("CM_TITLE_INFOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Có lỗi hệ thống.Vui lòng liên hệ người quản trị..
+        /// </summary>
+        internal static string CM_TITLE_SYSTEM_ERR {
+            get {
+                return ResourceManager.GetString("CM_TITLE_SYSTEM_ERR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cảnh báo.
+        /// </summary>
+        internal static string CM_TITLE_WARNING {
+            get {
+                return ResourceManager.GetString("CM_TITLE_WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thêm mới.
+        /// </summary>
+        internal static string ITEM_ACTION_ADD {
+            get {
+                return ResourceManager.GetString("ITEM_ACTION_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xóa.
+        /// </summary>
+        internal static string ITEM_ACTION_DELETE {
+            get {
+                return ResourceManager.GetString("ITEM_ACTION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xuất dữ liệu.
+        /// </summary>
+        internal static string ITEM_ACTION_EXPORT {
+            get {
+                return ResourceManager.GetString("ITEM_ACTION_EXPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nhập dữ liệu.
+        /// </summary>
+        internal static string ITEM_ACTION_IMPORT {
+            get {
+                return ResourceManager.GetString("ITEM_ACTION_IMPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cập nhật.
+        /// </summary>
+        internal static string ITEM_ACTION_UPDATE {
+            get {
+                return ResourceManager.GetString("ITEM_ACTION_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mã phạm nhân.
+        /// </summary>
+        internal static string ITEM_PRISON_ID {
+            get {
+                return ResourceManager.GetString("ITEM_PRISON_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã phạm nhân.
+        /// </summary>
+        internal static string ITEM_PRISON_ID_UPPER {
+            get {
+                return ResourceManager.GetString("ITEM_PRISON_ID_UPPER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tên phạm nhân.
+        /// </summary>
+        internal static string ITEM_PRISON_NAME {
+            get {
+                return ResourceManager.GetString("ITEM_PRISON_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lý do ra trại.
+        /// </summary>
+        internal static string ITEM_PRISON_RESOND_OUT {
+            get {
+                return ResourceManager.GetString("ITEM_PRISON_RESOND_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên người dùng.
+        /// </summary>
+        internal static string ITEM_USER_NAME_UPPER {
+            get {
+                return ResourceManager.GetString("ITEM_USER_NAME_UPPER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mật khẩu.
+        /// </summary>
+        internal static string ITEM_USER_PASSWORD_UPPER {
+            get {
+                return ResourceManager.GetString("ITEM_USER_PASSWORD_UPPER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên đăng nhập.
+        /// </summary>
+        internal static string ITEM_USER_USERNAME_UPPER {
+            get {
+                return ResourceManager.GetString("ITEM_USER_USERNAME_UPPER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DhSNGJFrnN.
         /// </summary>
         internal static string key {
             get {
                 return ResourceManager.GetString("key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mật khẩu không đúng hoặc tài khoản của bạn bị khóa.\n Vui lòng liên lạc tới người quản trị..
+        /// </summary>
+        internal static string LOGIN_MSG_001 {
+            get {
+                return ResourceManager.GetString("LOGIN_MSG_001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chỉ chọn 1 dòng trên danh sách..
+        /// </summary>
+        internal static string MAIN_MSG_002 {
+            get {
+                return ResourceManager.GetString("MAIN_MSG_002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chọn dòng muốn xóa trên danh sách..
+        /// </summary>
+        internal static string MAIN_MSG_003 {
+            get {
+                return ResourceManager.GetString("MAIN_MSG_003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn có chắc chắn muốn xóa dòng này không?.
+        /// </summary>
+        internal static string MAIN_MSG_004 {
+            get {
+                return ResourceManager.GetString("MAIN_MSG_004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày nhập trại chưa chính xác. \nNgày nhập trại phải sau ngày bắt..
+        /// </summary>
+        internal static string PRISON_MSG_001 {
+            get {
+                return ResourceManager.GetString("PRISON_MSG_001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày đưa vào diện quản chế chưa chính xác. \nNgày đưa vào diện quản chế phải sau ngày nhập trại..
+        /// </summary>
+        internal static string PRISON_MSG_002 {
+            get {
+                return ResourceManager.GetString("PRISON_MSG_002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã phạm nhân đã tồn tại..
+        /// </summary>
+        internal static string PRISON_MSG_005 {
+            get {
+                return ResourceManager.GetString("PRISON_MSG_005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng nhập vào vào lý do ra trại..
+        /// </summary>
+        internal static string PRISON_MSG_006 {
+            get {
+                return ResourceManager.GetString("PRISON_MSG_006", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thêm mới người dùng.
+        /// </summary>
+        internal static string USER_ACTION_ADD {
+            get {
+                return ResourceManager.GetString("USER_ACTION_ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xóa người dùng.
+        /// </summary>
+        internal static string USER_ACTION_DELETE {
+            get {
+                return ResourceManager.GetString("USER_ACTION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cập nhật người dùng.
+        /// </summary>
+        internal static string USER_ACTION_UPDATE {
+            get {
+                return ResourceManager.GetString("USER_ACTION_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Người quản trị.
+        /// </summary>
+        internal static string USER_ROLE_ADMIN {
+            get {
+                return ResourceManager.GetString("USER_ROLE_ADMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Người dùng thường.
+        /// </summary>
+        internal static string USER_ROLE_NORMAL {
+            get {
+                return ResourceManager.GetString("USER_ROLE_NORMAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Có hiệu lực.
+        /// </summary>
+        internal static string USER_STATUS_ACTIVE {
+            get {
+                return ResourceManager.GetString("USER_STATUS_ACTIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không có hiệu lực.
+        /// </summary>
+        internal static string USER_STATUS_INACTIVE {
+            get {
+                return ResourceManager.GetString("USER_STATUS_INACTIVE", resourceCulture);
             }
         }
     }

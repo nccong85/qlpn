@@ -62,16 +62,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnRegistration = new System.Windows.Forms.Button();
             this.updateTab = new System.Windows.Forms.TabPage();
-            this.searchTab = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbSearchDivisonId = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtSearchUserId = new System.Windows.Forms.TextBox();
-            this.txtSearchUsername = new System.Windows.Forms.TextBox();
-            this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt2Tel = new System.Windows.Forms.TextBox();
             this.txt2Email = new System.Windows.Forms.TextBox();
@@ -100,6 +90,16 @@
             this.rdo2Disable = new System.Windows.Forms.RadioButton();
             this.rdo2Enable = new System.Windows.Forms.RadioButton();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.dgvMembers = new System.Windows.Forms.DataGridView();
+            this.searchTab = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbSearchDivisonId = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSearchUserName = new System.Windows.Forms.TextBox();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
             this.userManagementTab.SuspendLayout();
             this.addNewTab.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -108,13 +108,13 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.updateTab.SuspendLayout();
-            this.searchTab.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
+            this.searchTab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Header
@@ -140,8 +140,9 @@
             this.userManagementTab.Location = new System.Drawing.Point(0, 35);
             this.userManagementTab.Name = "userManagementTab";
             this.userManagementTab.SelectedIndex = 0;
-            this.userManagementTab.Size = new System.Drawing.Size(730, 698);
+            this.userManagementTab.Size = new System.Drawing.Size(730, 620);
             this.userManagementTab.TabIndex = 31;
+            this.userManagementTab.SelectedIndexChanged += new System.EventHandler(this.userManagementTab_SelectedIndexChanged);
             // 
             // addNewTab
             // 
@@ -150,7 +151,7 @@
             this.addNewTab.Location = new System.Drawing.Point(4, 24);
             this.addNewTab.Name = "addNewTab";
             this.addNewTab.Padding = new System.Windows.Forms.Padding(3);
-            this.addNewTab.Size = new System.Drawing.Size(722, 670);
+            this.addNewTab.Size = new System.Drawing.Size(722, 592);
             this.addNewTab.TabIndex = 0;
             this.addNewTab.Text = "Đăng ký mới";
             // 
@@ -195,7 +196,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(705, 260);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(705, 268);
             this.tableLayoutPanel2.TabIndex = 32;
             // 
             // txtTel
@@ -293,6 +294,7 @@
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtPassword.Location = new System.Drawing.Point(123, 37);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(209, 21);
             this.txtPassword.TabIndex = 3;
             // 
@@ -499,130 +501,9 @@
             this.updateTab.Location = new System.Drawing.Point(4, 24);
             this.updateTab.Name = "updateTab";
             this.updateTab.Padding = new System.Windows.Forms.Padding(3);
-            this.updateTab.Size = new System.Drawing.Size(722, 670);
+            this.updateTab.Size = new System.Drawing.Size(722, 592);
             this.updateTab.TabIndex = 1;
             this.updateTab.Text = "Tìm kiếm/Cập nhật";
-            // 
-            // searchTab
-            // 
-            this.searchTab.Controls.Add(this.tabPage1);
-            this.searchTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTab.Location = new System.Drawing.Point(6, 6);
-            this.searchTab.Name = "searchTab";
-            this.searchTab.SelectedIndex = 0;
-            this.searchTab.Size = new System.Drawing.Size(705, 100);
-            this.searchTab.TabIndex = 9;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.btnSearch);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.cmbSearchDivisonId);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.txtSearchUserId);
-            this.tabPage1.Controls.Add(this.txtSearchUsername);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(697, 71);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Tìm kiếm";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatAppearance.BorderSize = 2;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSearch.Location = new System.Drawing.Point(522, 31);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(100, 26);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label2.Location = new System.Drawing.Point(180, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tên người dùng";
-            // 
-            // cmbSearchDivisonId
-            // 
-            this.cmbSearchDivisonId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSearchDivisonId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSearchDivisonId.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbSearchDivisonId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSearchDivisonId.FormattingEnabled = true;
-            this.cmbSearchDivisonId.Location = new System.Drawing.Point(356, 33);
-            this.cmbSearchDivisonId.Name = "cmbSearchDivisonId";
-            this.cmbSearchDivisonId.Size = new System.Drawing.Size(145, 24);
-            this.cmbSearchDivisonId.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(353, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Đơn vị";
-            // 
-            // txtSearchUserId
-            // 
-            this.txtSearchUserId.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSearchUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSearchUserId.Location = new System.Drawing.Point(24, 33);
-            this.txtSearchUserId.Name = "txtSearchUserId";
-            this.txtSearchUserId.Size = new System.Drawing.Size(134, 23);
-            this.txtSearchUserId.TabIndex = 1;
-            // 
-            // txtSearchUsername
-            // 
-            this.txtSearchUsername.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSearchUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSearchUsername.Location = new System.Drawing.Point(183, 33);
-            this.txtSearchUsername.Name = "txtSearchUsername";
-            this.txtSearchUsername.Size = new System.Drawing.Size(146, 23);
-            this.txtSearchUsername.TabIndex = 2;
-            // 
-            // dgvMembers
-            // 
-            this.dgvMembers.AllowUserToAddRows = false;
-            this.dgvMembers.AllowUserToOrderColumns = true;
-            this.dgvMembers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMembers.Location = new System.Drawing.Point(6, 112);
-            this.dgvMembers.Name = "dgvMembers";
-            this.dgvMembers.ReadOnly = true;
-            this.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMembers.Size = new System.Drawing.Size(705, 269);
-            this.dgvMembers.TabIndex = 10;
             // 
             // tableLayoutPanel1
             // 
@@ -653,7 +534,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label23, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.btnUpdate, 3, 7);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 398);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 310);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -664,7 +545,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 260);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 266);
             this.tableLayoutPanel1.TabIndex = 33;
             // 
             // txt2Tel
@@ -762,6 +643,7 @@
             this.txt2Password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txt2Password.Location = new System.Drawing.Point(123, 37);
             this.txt2Password.Name = "txt2Password";
+            this.txt2Password.PasswordChar = '*';
             this.txt2Password.Size = new System.Drawing.Size(209, 21);
             this.txt2Password.TabIndex = 3;
             // 
@@ -770,7 +652,7 @@
             this.cmb2Division.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmb2Division.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.cmb2Division.FormattingEnabled = true;
-            this.cmb2Division.Location = new System.Drawing.Point(458, 36);
+            this.cmb2Division.Location = new System.Drawing.Point(458, 38);
             this.cmb2Division.Name = "cmb2Division";
             this.cmb2Division.Size = new System.Drawing.Size(235, 23);
             this.cmb2Division.TabIndex = 4;
@@ -943,19 +825,145 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdate.Location = new System.Drawing.Point(602, 227);
+            this.btnUpdate.Location = new System.Drawing.Point(590, 227);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 26);
             this.btnUpdate.TabIndex = 20;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // dgvMembers
+            // 
+            this.dgvMembers.AllowUserToAddRows = false;
+            this.dgvMembers.AllowUserToOrderColumns = true;
+            this.dgvMembers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMembers.Location = new System.Drawing.Point(6, 112);
+            this.dgvMembers.Name = "dgvMembers";
+            this.dgvMembers.ReadOnly = true;
+            this.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMembers.Size = new System.Drawing.Size(705, 192);
+            this.dgvMembers.TabIndex = 10;
+            this.dgvMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellContentClick);
+            this.dgvMembers.SelectionChanged += new System.EventHandler(this.dgvMembers_SelectionChanged);
+            // 
+            // searchTab
+            // 
+            this.searchTab.Controls.Add(this.tabPage1);
+            this.searchTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTab.Location = new System.Drawing.Point(6, 6);
+            this.searchTab.Name = "searchTab";
+            this.searchTab.SelectedIndex = 0;
+            this.searchTab.Size = new System.Drawing.Size(705, 100);
+            this.searchTab.TabIndex = 9;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnSearch);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.cmbSearchDivisonId);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.txtSearchUserName);
+            this.tabPage1.Controls.Add(this.txtSearchName);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(697, 71);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Tìm kiếm";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatAppearance.BorderSize = 2;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSearch.Location = new System.Drawing.Point(522, 31);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(100, 26);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label2.Location = new System.Drawing.Point(180, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tên người dùng";
+            // 
+            // cmbSearchDivisonId
+            // 
+            this.cmbSearchDivisonId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSearchDivisonId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSearchDivisonId.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbSearchDivisonId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSearchDivisonId.FormattingEnabled = true;
+            this.cmbSearchDivisonId.Location = new System.Drawing.Point(356, 33);
+            this.cmbSearchDivisonId.Name = "cmbSearchDivisonId";
+            this.cmbSearchDivisonId.Size = new System.Drawing.Size(145, 24);
+            this.cmbSearchDivisonId.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên đăng nhập";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.Location = new System.Drawing.Point(353, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Đơn vị";
+            // 
+            // txtSearchUserName
+            // 
+            this.txtSearchUserName.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSearchUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSearchUserName.Location = new System.Drawing.Point(24, 33);
+            this.txtSearchUserName.Name = "txtSearchUserName";
+            this.txtSearchUserName.Size = new System.Drawing.Size(134, 23);
+            this.txtSearchUserName.TabIndex = 1;
+            // 
+            // txtSearchName
+            // 
+            this.txtSearchName.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSearchName.Location = new System.Drawing.Point(183, 33);
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(146, 23);
+            this.txtSearchName.TabIndex = 2;
             // 
             // UserFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(732, 736);
+            this.ClientSize = new System.Drawing.Size(732, 650);
             this.Controls.Add(this.userManagementTab);
             this.Controls.Add(this.Header);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -976,10 +984,6 @@
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.updateTab.ResumeLayout(false);
-            this.searchTab.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -988,6 +992,10 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();
+            this.searchTab.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1035,8 +1043,8 @@
         private System.Windows.Forms.ComboBox cmbSearchDivisonId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSearchUserId;
-        private System.Windows.Forms.TextBox txtSearchUsername;
+        private System.Windows.Forms.TextBox txtSearchUserName;
+        private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.DataGridView dgvMembers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txt2Tel;

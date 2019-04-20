@@ -46,6 +46,13 @@ namespace CommonLib
             public const string NORMAL_USER = "2";
         }
 
+        public class UserStatus
+        {
+            public const string ENABLE = "1";
+
+            public const string DISABLE = "0";
+        }
+
         public const string GIOI_TINH_NAM = "01";
 
         public const string GIOI_TINH_NU = "02";
@@ -64,6 +71,7 @@ namespace CommonLib
         public class FormatDateTime
         {
             public const string DATE_YYYYMMDD = "yyyy/MM/dd";
+            public const string DATE_DDMMYYYY = "dd/MM/yyyy";
             public const string TIME_HHMMSS = "{0:HH:mm:ss}";
             public const string TIME_HHMM = "{0:HH:mm}";
             public const string DATE_MMDDYYYY = "MM/dd/yyyy";

@@ -12,10 +12,11 @@ using System.Windows.Forms;
 using CommonLib;
 using Business.Repository;
 using CommonLib.Model.DTO;
+using QLPN.Properties;
 
 namespace QLPN
 {
-    public partial class UpdatePrisonFrm : Form
+    public partial class PrisonFrm : Form
     {
         public bool IsUpdateMode { get => _isUpdateMode; set => _isUpdateMode = value; }
         public string MaPhamNhan { get => _maPhamNhan; set => _maPhamNhan = value; }
@@ -28,7 +29,7 @@ namespace QLPN
         private prison_mst _prisoner = null;
         private user_mst _user = null;
 
-        public UpdatePrisonFrm()
+        public PrisonFrm()
         {
             InitializeComponent();
             _dbContext = new Entities();
@@ -39,8 +40,9 @@ namespace QLPN
         {
             if (IsUpdateMode)
             {
-                UpdatePrisoner();  
-            } else
+                UpdatePrisoner();
+            }
+            else
             {
                 AddNewPrisoner();
             }
@@ -50,16 +52,23 @@ namespace QLPN
         {
             _prisoner = SetDataToObject(_prisoner);
             _prisoner.ngay_cap_nhat = System.DateTime.Now;
-            if (IsValidate(_prisoner))
+            _prisoner.nguoi_tao = this._user.id;
+            try
             {
-                _prisonRepository.Update(_prisoner);
-                //raiseUpdate();
+                if (IsValidate(_prisoner))
+                {
+                    _prisonRepository.Update(_prisoner);
+                    MessageBox.Show(String.Format(Resources.CM_MSG_HANDLE_SUCCESS, Resources.ITEM_ACTION_UPDATE), CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show(String.Format(String.Concat(Resources.CM_MSG_HANDLE_FAILED, ex.Message), Resources.ITEM_ACTION_UPDATE), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Cập nhật thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private prison_mst SetDataToObject(prison_mst obj)
@@ -132,22 +141,21 @@ namespace QLPN
 
                 prisoner = SetDataToObject(prisoner);
                 prisoner.ngay_tao = System.DateTime.Now;
+                prisoner.nguoi_tao = this._user.id;
 
                 if (IsValidate(prisoner))
                 {
                     _prisonRepository.Add(prisoner);
-                    //raiseUpdate();
                 }
                 else
                 {
                     return;
                 }
-                
-                MessageBox.Show("Thêm mới thành công!", CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(String.Format(Resources.CM_MSG_HANDLE_SUCCESS, Resources.ITEM_ACTION_ADD), CommonConst.MessageCommon.MESSAGE_CAPTION_INFOR, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Thêm mới thất bại!\n" + ex.ToString(), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(String.Format(String.Concat(Resources.CM_MSG_HANDLE_FAILED, ex.Message), Resources.ITEM_ACTION_ADD), CommonConst.MessageCommon.MESSAGE_CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -167,7 +175,7 @@ namespace QLPN
         }
 
         private void LoadDataToScreen()
-        {       
+        {
             if (!String.IsNullOrEmpty(_maPhamNhan))
             {
                 _prisoner = _prisonRepository.GetPrisonById(MaPhamNhan);
@@ -209,13 +217,14 @@ namespace QLPN
                     dtpNgayBat.Value = _prisoner.ngay_bat.Value;
                     dtpNgayNhapTrai.Value = _prisoner.ngay_nhap_trai.Value;
                     dtpNgayDuaVaoQuanChe.Value = _prisoner.ngay_dua_vao_dien_quan_che.Value;
-                    
-                    if(_prisoner.ngay_dua_ra != null)
+
+                    if (_prisoner.ngay_dua_ra != null)
                     {
                         EnableLydoRaTrai();
                         dtpNgayRaTrai.Value = _prisoner.ngay_dua_ra.Value;
                         txtLyDoRaTrai.Text = _prisoner.ly_do_dua_ra;
-                    }else
+                    }
+                    else
                     {
                         DisableLydoRaTrai();
                     }
@@ -248,7 +257,7 @@ namespace QLPN
             txtLyDoRaTrai.Enabled = true;
             txtLyDoRaTrai.BackColor = Color.LightCoral;
             dtpNgayRaTrai.Format = DateTimePickerFormat.Custom;
-            dtpNgayRaTrai.CustomFormat = "dd/MM/yyyy";
+            dtpNgayRaTrai.CustomFormat = CommonConst.FormatDateTime.DATE_DDMMYYYY;
         }
 
         private void InitScreen()
@@ -273,11 +282,12 @@ namespace QLPN
 
             if (_isUpdateMode)
             {
-                btnUpdate.Text = "Cập nhật[F10]";
+                btnUpdate.Text = Resources.CM_BTN_ADD;
                 txtMaPN.Enabled = false;
-            }else
+            }
+            else
             {
-                btnUpdate.Text = "Thêm mới[F10]";
+                btnUpdate.Text = Resources.CM_BTN_UPDATE;
             }
         }
 
@@ -314,35 +324,35 @@ namespace QLPN
             if (String.IsNullOrEmpty(prisoner.ma_dang_ky))
             {
                 isValid = false;
-                MessageBox.Show("Hãy nhập vào mã phạm nhân!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(String.Format(Resources.CM_MSG_REQUIRED,Resources.ITEM_PRISON_ID), CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return isValid;
             }
 
             if (String.IsNullOrEmpty(prisoner.ho_va_ten))
             {
                 isValid = false;
-                MessageBox.Show("Hãy nhập vào tên phạm nhân!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(String.Format(Resources.CM_MSG_REQUIRED, Resources.ITEM_PRISON_NAME), CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return isValid;
             }
 
             if (prisoner.ngay_bat.Value > prisoner.ngay_nhap_trai.Value)
             {
                 isValid = false;
-                MessageBox.Show("Ngày nhập trại chưa chính xác. \nNgày nhập trại phải sau ngày bắt!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.PRISON_MSG_001, CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return isValid;
             }
 
             if (prisoner.ngay_nhap_trai.Value > prisoner.ngay_dua_vao_dien_quan_che.Value)
             {
                 isValid = false;
-                MessageBox.Show("Ngày đưa vào diện quản chế chưa chính xác. \nNgày đưa vào diện quản chế phải sau ngày nhập trại!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.PRISON_MSG_002, CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return isValid;
             }
 
             if (!_isUpdateMode && _prisonRepository.IsExist(prisoner.ma_dang_ky))
             {
                 isValid = false;
-                MessageBox.Show("Mã phạm nhân đã tồn tại!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(String.Format(Resources.CM_MSG_DUPLICATE,Resources.ITEM_PRISON_ID_UPPER), CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return isValid;
             }
 
@@ -351,7 +361,7 @@ namespace QLPN
                 if (String.IsNullOrEmpty(prisoner.ly_do_dua_ra))
                 {
                     isValid = false;
-                    MessageBox.Show("Hãy nhập vào vào lý do ra trại!", CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(String.Format(Resources.CM_MSG_REQUIRED, Resources.ITEM_PRISON_RESOND_OUT), CommonConst.MessageCommon.MESSAGE_CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return isValid;
                 }
             }
@@ -371,9 +381,10 @@ namespace QLPN
                 {
                     this.AddNewPrisoner();
                 }
-                
+
                 return true;
-            }else if (keyData == Keys.Escape)
+            }
+            else if (keyData == Keys.Escape)
             {
                 this.Close();
                 return true;
@@ -396,7 +407,8 @@ namespace QLPN
             if (chkRaTrai.Checked)
             {
                 EnableLydoRaTrai();
-            }else
+            }
+            else
             {
                 DisableLydoRaTrai();
             }

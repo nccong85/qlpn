@@ -77,11 +77,11 @@
   <ItemGroup>
     <Compile Include="App_Code\ComboBoxUtil.cs" />
     <Compile Include="App_Code\Util.cs" />
-    <Compile Include="UpdatePrisonFrm.cs">
+    <Compile Include="PrisonFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdatePrisonFrm.Designer.cs">
-      <DependentUpon>UpdatePrisonFrm.cs</DependentUpon>
+    <Compile Include="PrisonFrm.Designer.cs">
+      <DependentUpon>PrisonFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Prisoner.cs" />
     <Compile Include="LoginFrm.cs">
@@ -104,8 +104,8 @@
     <Compile Include="UserFrm.Designer.cs">
       <DependentUpon>UserFrm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UpdatePrisonFrm.resx">
-      <DependentUpon>UpdatePrisonFrm.cs</DependentUpon>
+    <EmbeddedResource Include="PrisonFrm.resx">
+      <DependentUpon>PrisonFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
