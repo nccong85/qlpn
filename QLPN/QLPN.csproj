@@ -187,6 +187,10 @@
       <Project>{21995cc1-9be3-4615-9e42-9f88f490788a}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MaskedDateEntryControl\MaskedDateEntryControl.csproj">
+      <Project>{732ee2ab-08b3-46fb-8c09-d9fca37ca855}</Project>
+      <Name>MaskedDateEntryControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

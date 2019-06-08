@@ -68,11 +68,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cmbBuongGiam = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.dtpNgayDuaVaoQuanChe = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbPhanLoaiQuanChe = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.dtpNgayNhapTrai = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.txtAnphat = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -80,7 +78,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.rdbNu = new System.Windows.Forms.RadioButton();
             this.rdbNam = new System.Windows.Forms.RadioButton();
-            this.dtpNgayBat = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtChapHanhAnTai = new System.Windows.Forms.TextBox();
@@ -92,7 +89,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtTenCha = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaPN = new System.Windows.Forms.TextBox();
@@ -102,11 +98,15 @@
             this.chkRaTrai = new System.Windows.Forms.CheckBox();
             this.txtLyDoRaTrai = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.dtpNgayRaTrai = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.btnDummyRegistration = new System.Windows.Forms.Button();
             this.Header = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtpNgayRaTrai = new MaskedDateEntryControl.MaskedDateTextBox();
+            this.dtpNgayDuaVaoQuanChe = new MaskedDateEntryControl.MaskedDateTextBox();
+            this.dtpNgayNhapTrai = new MaskedDateEntryControl.MaskedDateTextBox();
+            this.dtpNgayBat = new MaskedDateEntryControl.MaskedDateTextBox();
+            this.dtpNgaySinh = new MaskedDateEntryControl.MaskedDateTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.dtpNgayDuaVaoQuanChe);
+            this.panel1.Controls.Add(this.dtpNgayNhapTrai);
+            this.panel1.Controls.Add(this.dtpNgayBat);
+            this.panel1.Controls.Add(this.dtpNgaySinh);
             this.panel1.Controls.Add(this.txtTienSu);
             this.panel1.Controls.Add(this.label36);
             this.panel1.Controls.Add(this.txtTienAn);
@@ -153,11 +157,9 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.cmbBuongGiam);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.dtpNgayDuaVaoQuanChe);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.cmbPhanLoaiQuanChe);
             this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.dtpNgayNhapTrai);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.txtAnphat);
             this.panel1.Controls.Add(this.label9);
@@ -165,7 +167,6 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.rdbNu);
             this.panel1.Controls.Add(this.rdbNam);
-            this.panel1.Controls.Add(this.dtpNgayBat);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.txtChapHanhAnTai);
@@ -177,7 +178,6 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtTenCha);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.dtpNgaySinh);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtMaPN);
@@ -194,7 +194,7 @@
             this.txtTienSu.MaxLength = 255;
             this.txtTienSu.Name = "txtTienSu";
             this.txtTienSu.Size = new System.Drawing.Size(145, 21);
-            this.txtTienSu.TabIndex = 76;
+            this.txtTienSu.TabIndex = 35;
             // 
             // label36
             // 
@@ -213,7 +213,7 @@
             this.txtTienAn.MaxLength = 255;
             this.txtTienAn.Name = "txtTienAn";
             this.txtTienAn.Size = new System.Drawing.Size(377, 21);
-            this.txtTienAn.TabIndex = 74;
+            this.txtTienAn.TabIndex = 34;
             // 
             // label35
             // 
@@ -244,7 +244,7 @@
             this.cmbBienPhapPhapLuat.Location = new System.Drawing.Point(120, 384);
             this.cmbBienPhapPhapLuat.Name = "cmbBienPhapPhapLuat";
             this.cmbBienPhapPhapLuat.Size = new System.Drawing.Size(377, 23);
-            this.cmbBienPhapPhapLuat.TabIndex = 71;
+            this.cmbBienPhapPhapLuat.TabIndex = 31;
             this.cmbBienPhapPhapLuat.TextUpdate += new System.EventHandler(this.cmbBienPhapPhapLuat_TextUpdate);
             // 
             // txtTenVoChong
@@ -273,7 +273,7 @@
             this.txtHoTen.Location = new System.Drawing.Point(119, 38);
             this.txtHoTen.MaxLength = 255;
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(135, 21);
+            this.txtHoTen.Size = new System.Drawing.Size(149, 21);
             this.txtHoTen.TabIndex = 4;
             // 
             // txtTenMe
@@ -350,7 +350,7 @@
             this.cmbNgoaiNgu.FormattingEnabled = true;
             this.cmbNgoaiNgu.Location = new System.Drawing.Point(119, 103);
             this.cmbNgoaiNgu.Name = "cmbNgoaiNgu";
-            this.cmbNgoaiNgu.Size = new System.Drawing.Size(135, 23);
+            this.cmbNgoaiNgu.Size = new System.Drawing.Size(149, 23);
             this.cmbNgoaiNgu.TabIndex = 11;
             this.cmbNgoaiNgu.TextUpdate += new System.EventHandler(this.cmbNgoaiNgu_TextUpdate);
             // 
@@ -384,7 +384,7 @@
             this.cmbDantoc.FormattingEnabled = true;
             this.cmbDantoc.Location = new System.Drawing.Point(119, 68);
             this.cmbDantoc.Name = "cmbDantoc";
-            this.cmbDantoc.Size = new System.Drawing.Size(135, 23);
+            this.cmbDantoc.Size = new System.Drawing.Size(149, 23);
             this.cmbDantoc.TabIndex = 8;
             this.cmbDantoc.TextUpdate += new System.EventHandler(this.cmbDantoc_TextUpdate);
             // 
@@ -448,6 +448,7 @@
             this.cmbTraiGiam.Name = "cmbTraiGiam";
             this.cmbTraiGiam.Size = new System.Drawing.Size(145, 23);
             this.cmbTraiGiam.TabIndex = 2;
+            this.cmbTraiGiam.SelectedIndexChanged += new System.EventHandler(this.cmbTraiGiam_SelectedIndexChanged);
             this.cmbTraiGiam.TextUpdate += new System.EventHandler(this.cmbTraiGiam_TextUpdate);
             // 
             // label23
@@ -477,7 +478,7 @@
             this.txtTomTatHanhVi.MaxLength = 255;
             this.txtTomTatHanhVi.Name = "txtTomTatHanhVi";
             this.txtTomTatHanhVi.Size = new System.Drawing.Size(661, 21);
-            this.txtTomTatHanhVi.TabIndex = 30;
+            this.txtTomTatHanhVi.TabIndex = 33;
             // 
             // txtBieuHienHoatDong
             // 
@@ -598,17 +599,6 @@
             this.label11.TabIndex = 43;
             this.label11.Text = "Buồng giam";
             // 
-            // dtpNgayDuaVaoQuanChe
-            // 
-            this.dtpNgayDuaVaoQuanChe.CalendarTitleForeColor = System.Drawing.Color.Blue;
-            this.dtpNgayDuaVaoQuanChe.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayDuaVaoQuanChe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayDuaVaoQuanChe.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayDuaVaoQuanChe.Location = new System.Drawing.Point(636, 260);
-            this.dtpNgayDuaVaoQuanChe.Name = "dtpNgayDuaVaoQuanChe";
-            this.dtpNgayDuaVaoQuanChe.Size = new System.Drawing.Size(145, 21);
-            this.dtpNgayDuaVaoQuanChe.TabIndex = 23;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -639,18 +629,6 @@
             this.label15.Size = new System.Drawing.Size(79, 15);
             this.label15.TabIndex = 39;
             this.label15.Text = "Phân loại QC";
-            // 
-            // dtpNgayNhapTrai
-            // 
-            this.dtpNgayNhapTrai.CalendarTitleForeColor = System.Drawing.Color.Blue;
-            this.dtpNgayNhapTrai.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayNhapTrai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayNhapTrai.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhapTrai.Location = new System.Drawing.Point(636, 230);
-            this.dtpNgayNhapTrai.Name = "dtpNgayNhapTrai";
-            this.dtpNgayNhapTrai.Size = new System.Drawing.Size(145, 21);
-            this.dtpNgayNhapTrai.TabIndex = 21;
-            this.dtpNgayNhapTrai.Leave += new System.EventHandler(this.dtpNgayNhapTrai_Leave);
             // 
             // label17
             // 
@@ -724,18 +702,6 @@
             this.rdbNam.TabStop = true;
             this.rdbNam.Text = "Nam";
             this.rdbNam.UseVisualStyleBackColor = true;
-            // 
-            // dtpNgayBat
-            // 
-            this.dtpNgayBat.CalendarTitleForeColor = System.Drawing.Color.Blue;
-            this.dtpNgayBat.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayBat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayBat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayBat.Location = new System.Drawing.Point(636, 197);
-            this.dtpNgayBat.Name = "dtpNgayBat";
-            this.dtpNgayBat.Size = new System.Drawing.Size(145, 21);
-            this.dtpNgayBat.TabIndex = 19;
-            this.dtpNgayBat.Leave += new System.EventHandler(this.dtpNgayBat_Leave);
             // 
             // label14
             // 
@@ -843,19 +809,6 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Họ tên";
             // 
-            // dtpNgaySinh
-            // 
-            this.dtpNgaySinh.CalendarTitleForeColor = System.Drawing.Color.Blue;
-            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(636, 7);
-            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(12, 3, 3, 3);
-            this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpNgaySinh.Size = new System.Drawing.Size(145, 21);
-            this.dtpNgaySinh.TabIndex = 3;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -879,18 +832,21 @@
             // txtMaPN
             // 
             this.txtMaPN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtMaPN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaPN.Location = new System.Drawing.Point(119, 7);
             this.txtMaPN.MaxLength = 20;
             this.txtMaPN.Name = "txtMaPN";
-            this.txtMaPN.Size = new System.Drawing.Size(135, 21);
+            this.txtMaPN.Size = new System.Drawing.Size(149, 21);
             this.txtMaPN.TabIndex = 1;
+            this.txtMaPN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaPN_KeyDown);
+            this.txtMaPN.Leave += new System.EventHandler(this.txtMaPN_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 15);
+            this.label2.Location = new System.Drawing.Point(3, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 15);
             this.label2.TabIndex = 2;
@@ -906,7 +862,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(568, 613);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 26);
-            this.btnUpdate.TabIndex = 25;
+            this.btnUpdate.TabIndex = 40;
             this.btnUpdate.Text = "Thêm mới";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -921,7 +877,7 @@
             this.btnClose.Location = new System.Drawing.Point(689, 613);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(115, 26);
-            this.btnClose.TabIndex = 27;
+            this.btnClose.TabIndex = 41;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -933,7 +889,7 @@
             this.chkRaTrai.Location = new System.Drawing.Point(316, 6);
             this.chkRaTrai.Name = "chkRaTrai";
             this.chkRaTrai.Size = new System.Drawing.Size(89, 19);
-            this.chkRaTrai.TabIndex = 55;
+            this.chkRaTrai.TabIndex = 37;
             this.chkRaTrai.Text = "Được ra trại";
             this.chkRaTrai.UseVisualStyleBackColor = true;
             this.chkRaTrai.CheckedChanged += new System.EventHandler(this.chkRaTrai_CheckedChanged);
@@ -944,7 +900,7 @@
             this.txtLyDoRaTrai.Location = new System.Drawing.Point(130, 37);
             this.txtLyDoRaTrai.Name = "txtLyDoRaTrai";
             this.txtLyDoRaTrai.Size = new System.Drawing.Size(650, 23);
-            this.txtLyDoRaTrai.TabIndex = 34;
+            this.txtLyDoRaTrai.TabIndex = 38;
             // 
             // label25
             // 
@@ -955,16 +911,6 @@
             this.label25.Size = new System.Drawing.Size(70, 15);
             this.label25.TabIndex = 54;
             this.label25.Text = "Lý do ra trại";
-            // 
-            // dtpNgayRaTrai
-            // 
-            this.dtpNgayRaTrai.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayRaTrai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtpNgayRaTrai.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayRaTrai.Location = new System.Drawing.Point(130, 5);
-            this.dtpNgayRaTrai.Name = "dtpNgayRaTrai";
-            this.dtpNgayRaTrai.Size = new System.Drawing.Size(170, 23);
-            this.dtpNgayRaTrai.TabIndex = 33;
             // 
             // label24
             // 
@@ -986,7 +932,7 @@
             this.btnDummyRegistration.Location = new System.Drawing.Point(447, 613);
             this.btnDummyRegistration.Name = "btnDummyRegistration";
             this.btnDummyRegistration.Size = new System.Drawing.Size(115, 26);
-            this.btnDummyRegistration.TabIndex = 28;
+            this.btnDummyRegistration.TabIndex = 39;
             this.btnDummyRegistration.Text = "Tạo Dummy";
             this.btnDummyRegistration.UseVisualStyleBackColor = false;
             this.btnDummyRegistration.Click += new System.EventHandler(this.btnDummyRegistration_Click);
@@ -1009,15 +955,75 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.dtpNgayRaTrai);
             this.panel2.Controls.Add(this.chkRaTrai);
             this.panel2.Controls.Add(this.txtLyDoRaTrai);
             this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.label25);
-            this.panel2.Controls.Add(this.dtpNgayRaTrai);
             this.panel2.Location = new System.Drawing.Point(10, 525);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(794, 71);
             this.panel2.TabIndex = 30;
+            // 
+            // dtpNgayRaTrai
+            // 
+            this.dtpNgayRaTrai.BackColor = System.Drawing.Color.White;
+            this.dtpNgayRaTrai.DateValue = null;
+            this.dtpNgayRaTrai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayRaTrai.Location = new System.Drawing.Point(130, 4);
+            this.dtpNgayRaTrai.Mask = "00/00/0000";
+            this.dtpNgayRaTrai.Name = "dtpNgayRaTrai";
+            this.dtpNgayRaTrai.RequireValidEntry = true;
+            this.dtpNgayRaTrai.Size = new System.Drawing.Size(145, 21);
+            this.dtpNgayRaTrai.TabIndex = 36;
+            // 
+            // dtpNgayDuaVaoQuanChe
+            // 
+            this.dtpNgayDuaVaoQuanChe.BackColor = System.Drawing.Color.White;
+            this.dtpNgayDuaVaoQuanChe.DateValue = null;
+            this.dtpNgayDuaVaoQuanChe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayDuaVaoQuanChe.Location = new System.Drawing.Point(635, 262);
+            this.dtpNgayDuaVaoQuanChe.Mask = "00/00/0000";
+            this.dtpNgayDuaVaoQuanChe.Name = "dtpNgayDuaVaoQuanChe";
+            this.dtpNgayDuaVaoQuanChe.RequireValidEntry = true;
+            this.dtpNgayDuaVaoQuanChe.Size = new System.Drawing.Size(145, 21);
+            this.dtpNgayDuaVaoQuanChe.TabIndex = 23;
+            // 
+            // dtpNgayNhapTrai
+            // 
+            this.dtpNgayNhapTrai.BackColor = System.Drawing.Color.White;
+            this.dtpNgayNhapTrai.DateValue = null;
+            this.dtpNgayNhapTrai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayNhapTrai.Location = new System.Drawing.Point(635, 230);
+            this.dtpNgayNhapTrai.Mask = "00/00/0000";
+            this.dtpNgayNhapTrai.Name = "dtpNgayNhapTrai";
+            this.dtpNgayNhapTrai.RequireValidEntry = true;
+            this.dtpNgayNhapTrai.Size = new System.Drawing.Size(145, 21);
+            this.dtpNgayNhapTrai.TabIndex = 21;
+            // 
+            // dtpNgayBat
+            // 
+            this.dtpNgayBat.BackColor = System.Drawing.Color.White;
+            this.dtpNgayBat.DateValue = null;
+            this.dtpNgayBat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayBat.Location = new System.Drawing.Point(636, 199);
+            this.dtpNgayBat.Mask = "00/00/0000";
+            this.dtpNgayBat.Name = "dtpNgayBat";
+            this.dtpNgayBat.RequireValidEntry = true;
+            this.dtpNgayBat.Size = new System.Drawing.Size(145, 21);
+            this.dtpNgayBat.TabIndex = 19;
+            // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dtpNgaySinh.DateValue = null;
+            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Location = new System.Drawing.Point(635, 9);
+            this.dtpNgaySinh.Mask = "00/00/0000";
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.RequireValidEntry = true;
+            this.dtpNgaySinh.Size = new System.Drawing.Size(145, 21);
+            this.dtpNgaySinh.TabIndex = 3;
             // 
             // PrisonFrm
             // 
@@ -1055,8 +1061,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaPN;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.DateTimePicker dtpNgayBat;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtQueQuan;
@@ -1071,11 +1075,9 @@
         private System.Windows.Forms.TextBox txtNoiDkHktt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dtpNgayDuaVaoQuanChe;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbPhanLoaiQuanChe;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DateTimePicker dtpNgayNhapTrai;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtAnphat;
         private System.Windows.Forms.Label label19;
@@ -1087,7 +1089,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DateTimePicker dtpNgayRaTrai;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtLyDoRaTrai;
         private System.Windows.Forms.Label label25;
@@ -1127,5 +1128,11 @@
         private System.Windows.Forms.Button btnDummyRegistration;
         private System.Windows.Forms.TextBox Header;
         private System.Windows.Forms.Panel panel2;
+        private MaskedDateEntryControl.MaskedDateTextBox dtpNgaySinh;
+        private MaskedDateEntryControl.MaskedDateTextBox dtpNgayBat;
+        private MaskedDateEntryControl.MaskedDateTextBox dtpNgayNhapTrai;
+        private MaskedDateEntryControl.MaskedDateTextBox dtpNgayDuaVaoQuanChe;
+        private MaskedDateEntryControl.MaskedDateTextBox dtpNgayRaTrai;
+        //private MaskedDateEntryControl.MaskedDateTextBox dtpNgaySinh;
     }
 }

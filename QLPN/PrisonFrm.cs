@@ -18,6 +18,8 @@ namespace QLPN
         public string MaPhamNhan { get => _maPhamNhan; set => _maPhamNhan = value; }
         public user_mst LoginUser { get => _user; set => _user = value; }
 
+        private const int MA_TRAI_GIAM_LENGTH = 8;
+        private const string SEPARATE_TEXT = "/";
         private readonly Entities _dbContext;
         private PrisonRepository _prisonRepository;
         private bool _isUpdateMode = false;
@@ -108,12 +110,12 @@ namespace QLPN
 
         private void dtpNgayBat_Leave(object sender, EventArgs e)
         {
-            dtpNgayNhapTrai.Value = dtpNgayBat.Value;
+            dtpNgayNhapTrai.DateValue = dtpNgayBat.DateValue;
         }
 
         private void dtpNgayNhapTrai_Leave(object sender, EventArgs e)
         {
-            dtpNgayDuaVaoQuanChe.Value = dtpNgayNhapTrai.Value.AddDays(1);
+            dtpNgayDuaVaoQuanChe.DateValue = dtpNgayNhapTrai.DateValue;
         }
 
         private void chkRaTrai_CheckedChanged(object sender, EventArgs e)
@@ -274,7 +276,7 @@ namespace QLPN
         {
             obj.ma_dang_ky = txtMaPN.Text.Trim();
             obj.ma_trai_giam = cmbTraiGiam.SelectedValue.ToString();
-            obj.ngay_thang_nam_sinh = dtpNgaySinh.Value;
+            obj.ngay_thang_nam_sinh = dtpNgaySinh.DateValue;
             obj.ho_va_ten = txtHoTen.Text.Trim();
             obj.ten_goi_khac = txtTenKhac.Text.Trim();
 
@@ -305,11 +307,11 @@ namespace QLPN
 
             obj.toi_danh = cmbToiDanh.SelectedValue == null ? CommonConst.BLANK : cmbToiDanh.SelectedValue.ToString();
             obj.an_phat = txtAnphat.Text.Trim();
-            obj.ngay_bat = dtpNgayBat.Value;
-            obj.ngay_nhap_trai = dtpNgayNhapTrai.Value;
+            obj.ngay_bat = dtpNgayBat.DateValue;
+            obj.ngay_nhap_trai = dtpNgayNhapTrai.DateValue;
 
             obj.phan_loai_quan_che = cmbPhanLoaiQuanChe.SelectedValue == null ? CommonConst.BLANK : cmbPhanLoaiQuanChe.SelectedValue.ToString();
-            obj.ngay_dua_vao_dien_quan_che = dtpNgayDuaVaoQuanChe.Value;
+            obj.ngay_dua_vao_dien_quan_che = dtpNgayDuaVaoQuanChe.DateValue;
             obj.doi_hien_tai = txtChapHanhAnTai.Text.Trim();
             obj.buong_so = cmbBuongGiam.SelectedValue == null ? CommonConst.BLANK : cmbBuongGiam.SelectedValue.ToString();
             obj.phan_trai = cmbPhanKhu.SelectedValue == null ? CommonConst.BLANK : cmbPhanKhu.SelectedValue.ToString();
@@ -326,7 +328,7 @@ namespace QLPN
 
             if (chkRaTrai.Checked)
             {
-                obj.ngay_dua_ra = dtpNgayRaTrai.Value;
+                obj.ngay_dua_ra = dtpNgayRaTrai.DateValue;
                 obj.ly_do_dua_ra = txtLyDoRaTrai.Text.Trim();
             }
 
@@ -397,15 +399,15 @@ namespace QLPN
                     cmbBienPhapPhapLuat.SelectedValue = _prisoner.bien_phap_ky_luat;
                     cmbBienPhapNghiepVu.SelectedValue = _prisoner.bien_phap_nghiep_vu;
 
-                    dtpNgaySinh.Value = _prisoner.ngay_thang_nam_sinh.Value;
-                    dtpNgayBat.Value = _prisoner.ngay_bat.Value;
-                    dtpNgayNhapTrai.Value = _prisoner.ngay_nhap_trai.Value;
-                    dtpNgayDuaVaoQuanChe.Value = _prisoner.ngay_dua_vao_dien_quan_che.Value;
+                    dtpNgaySinh.DateValue = _prisoner.ngay_thang_nam_sinh.Value;
+                    dtpNgayBat.DateValue = _prisoner.ngay_bat.Value;
+                    dtpNgayNhapTrai.DateValue = _prisoner.ngay_nhap_trai.Value;
+                    dtpNgayDuaVaoQuanChe.DateValue = _prisoner.ngay_dua_vao_dien_quan_che.Value;
 
                     if (_prisoner.ngay_dua_ra != null)
                     {
                         EnableLydoRaTrai();
-                        dtpNgayRaTrai.Value = _prisoner.ngay_dua_ra.Value;
+                        dtpNgayRaTrai.DateValue = _prisoner.ngay_dua_ra.Value;
                         txtLyDoRaTrai.Text = _prisoner.ly_do_dua_ra;
                     }
                     else
@@ -430,8 +432,6 @@ namespace QLPN
             dtpNgayRaTrai.Enabled = false;
             txtLyDoRaTrai.Enabled = false;
             txtLyDoRaTrai.BackColor = Color.White;
-            dtpNgayRaTrai.Format = DateTimePickerFormat.Custom;
-            dtpNgayRaTrai.CustomFormat = ":";
             txtLyDoRaTrai.Text = CommonConst.BLANK;
         }
 
@@ -440,8 +440,6 @@ namespace QLPN
             dtpNgayRaTrai.Enabled = true;
             txtLyDoRaTrai.Enabled = true;
             txtLyDoRaTrai.BackColor = Color.LightCoral;
-            dtpNgayRaTrai.Format = DateTimePickerFormat.Custom;
-            dtpNgayRaTrai.CustomFormat = CommonConst.FormatDateTime.DATE_DDMMYYYY;
         }
 
         private void InitScreen()
@@ -491,7 +489,7 @@ namespace QLPN
                 btnUpdate.Text = Resources.CM_BTN_ADD;
             }
 
-           
+
 
         }
 
@@ -604,10 +602,10 @@ namespace QLPN
             cmbTraiGiam.SelectedIndex = cmbTraiGiam.FindStringExact("0VLB0002:Hồng Ca");
             txtMaPN.Text = "01NV" + _prisonRepository.GetIcrementCodeForDummy() + "0VLB0002";
 
-            dtpNgaySinh.Value = new DateTime(1979, rand.Next(1, 12), rand.Next(1, 30));
-            dtpNgayBat.Value = new DateTime(2014, rand.Next(1, 12), rand.Next(1, 30));
-            dtpNgayNhapTrai.Value = dtpNgayBat.Value.AddDays(2);
-            dtpNgayDuaVaoQuanChe.Value = dtpNgayBat.Value.AddMonths(1);
+            dtpNgaySinh.DateValue = new DateTime(1979, rand.Next(1, 12), rand.Next(1, 30));
+            dtpNgayBat.DateValue = new DateTime(2014, rand.Next(1, 12), rand.Next(1, 30));
+            dtpNgayNhapTrai.DateValue = dtpNgayBat.DateValue;
+            dtpNgayDuaVaoQuanChe.DateValue = dtpNgayBat.DateValue;
 
             txtQueQuan.Text = "Ngõ " + rand.Next(100, 999).ToString() + " đường Tôn Đức Thắng, Đống Đa, Hà Nội";
             txtNoiDkHktt.Text = "Ngõ " + rand.Next(10, 99).ToString() + " đường Huỳnh Thúc Kháng, Đống Đa, Hà Nội";
@@ -617,5 +615,47 @@ namespace QLPN
             txtTienSu.Text = dummy[rand.Next(0, 1)];
         }
         #endregion
+
+        private void txtMaPN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmbTraiGiam.Focus();
+            }
+        }
+
+        private void txtMaPN_Leave(object sender, EventArgs e)
+        {
+
+
+            if (!String.IsNullOrEmpty(txtMaPN.Text))
+            {
+                int separateCharIndex = txtMaPN.Text.IndexOf(SEPARATE_TEXT);
+
+                if (separateCharIndex > 0)
+                {
+                    txtMaPN.Text = String.Concat(txtMaPN.Text.Substring(0, separateCharIndex), SEPARATE_TEXT, cmbTraiGiam.SelectedValue.ToString());
+                }
+                else
+                {
+                    txtMaPN.Text = String.Concat(txtMaPN.Text, SEPARATE_TEXT, cmbTraiGiam.SelectedValue.ToString());
+                }
+            }
+        }
+
+        private void cmbTraiGiam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtMaPN.Text.Length > MA_TRAI_GIAM_LENGTH)
+            {
+                if (txtMaPN.Text.Contains(SEPARATE_TEXT))
+                {
+                    txtMaPN.Text = String.Concat(txtMaPN.Text.Substring(0, txtMaPN.Text.Length - MA_TRAI_GIAM_LENGTH), cmbTraiGiam.SelectedValue.ToString());
+                }
+                else
+                {
+                    txtMaPN.Text = String.Concat(txtMaPN.Text.Substring(0, txtMaPN.Text.Length - MA_TRAI_GIAM_LENGTH), SEPARATE_TEXT, cmbTraiGiam.SelectedValue.ToString());
+                }
+            }
+        }
     }
 }
