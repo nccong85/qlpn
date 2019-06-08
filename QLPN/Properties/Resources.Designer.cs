@@ -277,6 +277,15 @@ namespace QLPN.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to tội danh.
+        /// </summary>
+        internal static string ITEM_PRISON_TOI_DANH {
+            get {
+                return ResourceManager.GetString("ITEM_PRISON_TOI_DANH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tên người dùng.
         /// </summary>
         internal static string ITEM_USER_NAME_UPPER {
@@ -313,7 +322,7 @@ namespace QLPN.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mật khẩu không đúng hoặc tài khoản của bạn bị khóa.\n Vui lòng liên lạc tới người quản trị..
+        ///   Looks up a localized string similar to Mật khẩu không đúng hoặc tài khoản của bạn bị khóa. Vui lòng liên lạc tới người quản trị..
         /// </summary>
         internal static string LOGIN_MSG_001 {
             get {

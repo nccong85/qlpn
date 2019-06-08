@@ -18,7 +18,7 @@ namespace CommonLib
 
             public const string PHAN_LOAI_PHAM_VI_HOAT_DONG = "03";
 
-            public const string PHAN_LOAI_BIEN_PHAP_KI_LUAT = "04";
+            public const string PHAN_LOAI_BIEN_PHAP_PHAP_LUAT = "04";
 
             public const string PHAN_LOAI_BIEN_PHAP_NGHIEP_VU = "05";
 

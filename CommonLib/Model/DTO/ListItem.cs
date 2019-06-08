@@ -22,6 +22,11 @@ namespace CommonLib.Model.DTO
             this.Value = value;
             this.Text = text;
         }
+
+        public string ToLower()
+        {
+            return this.Text.ToLower();
+        }
     }
 
     [Serializable]
@@ -39,6 +44,11 @@ namespace CommonLib.Model.DTO
         {
             this.Value = value;
             this.Text = text;
+        }
+
+        public string ToLower()
+        {
+            return this.Text.ToLower();
         }
     }
 }

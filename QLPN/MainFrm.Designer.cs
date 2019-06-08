@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -48,9 +48,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.searchTab = new System.Windows.Forms.TabControl();
-            this.btnReLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUserManagement = new System.Windows.Forms.Button();
+            this.printBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrisonerList)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.searchTab.SuspendLayout();
@@ -197,27 +197,27 @@
             this.dgvPrisonerList.AllowUserToResizeColumns = false;
             this.dgvPrisonerList.AllowUserToResizeRows = false;
             this.dgvPrisonerList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrisonerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPrisonerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPrisonerList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPrisonerList.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPrisonerList.Location = new System.Drawing.Point(12, 172);
             this.dgvPrisonerList.Name = "dgvPrisonerList";
             this.dgvPrisonerList.ReadOnly = true;
-            this.dgvPrisonerList.Size = new System.Drawing.Size(786, 363);
+            this.dgvPrisonerList.Size = new System.Drawing.Size(786, 440);
             this.dgvPrisonerList.TabIndex = 6;
             this.dgvPrisonerList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrisonerList_CellContentDoubleClick);
             // 
@@ -247,7 +247,7 @@
             this.tabPage1.Controls.Add(this.txtSearchPrisonName);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(782, 71);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tìm kiếm";
@@ -287,21 +287,6 @@
             this.searchTab.Size = new System.Drawing.Size(790, 100);
             this.searchTab.TabIndex = 8;
             // 
-            // btnReLogin
-            // 
-            this.btnReLogin.BackColor = System.Drawing.SystemColors.Control;
-            this.btnReLogin.FlatAppearance.BorderSize = 2;
-            this.btnReLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnReLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnReLogin.Location = new System.Drawing.Point(12, 618);
-            this.btnReLogin.Name = "btnReLogin";
-            this.btnReLogin.Size = new System.Drawing.Size(100, 26);
-            this.btnReLogin.TabIndex = 9;
-            this.btnReLogin.Text = "Đăng nhập lại";
-            this.btnReLogin.UseVisualStyleBackColor = false;
-            this.btnReLogin.Click += new System.EventHandler(this.btnReLogin_Click);
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.SystemColors.Control;
@@ -332,13 +317,28 @@
             this.btnUserManagement.UseVisualStyleBackColor = false;
             this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
+            // printBtn
+            // 
+            this.printBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.printBtn.FlatAppearance.BorderSize = 2;
+            this.printBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.printBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.printBtn.Location = new System.Drawing.Point(12, 140);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(121, 26);
+            this.printBtn.TabIndex = 9;
+            this.printBtn.Text = "In";
+            this.printBtn.UseVisualStyleBackColor = false;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(809, 537);
-            this.Controls.Add(this.btnReLogin);
+            this.ClientSize = new System.Drawing.Size(809, 655);
+            this.Controls.Add(this.printBtn);
             this.Controls.Add(this.searchTab);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.dgvPrisonerList);
@@ -384,9 +384,9 @@
         private System.Windows.Forms.TabControl searchTab;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnReLogin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnUserManagement;
+        private System.Windows.Forms.Button printBtn;
     }
 }
 

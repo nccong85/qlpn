@@ -40,7 +40,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.Location = new System.Drawing.Point(65, 106);
+            this.btnLogin.Location = new System.Drawing.Point(64, 108);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(91, 28);
             this.btnLogin.TabIndex = 9;
@@ -51,10 +51,10 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtPassword.Location = new System.Drawing.Point(128, 65);
+            this.txtPassword.Location = new System.Drawing.Point(128, 67);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(139, 30);
+            this.txtPassword.Size = new System.Drawing.Size(139, 23);
             this.txtPassword.TabIndex = 8;
             // 
             // txtUserName
@@ -63,19 +63,19 @@
             this.txtUserName.Location = new System.Drawing.Point(128, 34);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(139, 30);
+            this.txtUserName.Size = new System.Drawing.Size(139, 23);
             this.txtUserName.TabIndex = 7;
             // 
             // lblError
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError.Location = new System.Drawing.Point(139, 10);
+            this.lblError.Location = new System.Drawing.Point(1, 2);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(97, 22);
+            this.lblError.Size = new System.Drawing.Size(334, 27);
             this.lblError.TabIndex = 10;
             this.lblError.Text = "Thông báo";
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserName
             // 
@@ -83,7 +83,7 @@
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblUserName.Location = new System.Drawing.Point(61, 36);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(27, 22);
+            this.lblUserName.Size = new System.Drawing.Size(19, 15);
             this.lblUserName.TabIndex = 11;
             this.lblUserName.Text = "ID";
             // 
@@ -91,9 +91,9 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblPassword.Location = new System.Drawing.Point(62, 68);
+            this.lblPassword.Location = new System.Drawing.Point(62, 70);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(83, 22);
+            this.lblPassword.Size = new System.Drawing.Size(58, 15);
             this.lblPassword.TabIndex = 12;
             this.lblPassword.Text = "Mật khẩu";
             // 
@@ -101,7 +101,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(176, 106);
+            this.btnCancel.Location = new System.Drawing.Point(176, 108);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 28);
             this.btnCancel.TabIndex = 13;
@@ -112,11 +112,11 @@
             // LoginFrm
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(336, 146);
+            this.ClientSize = new System.Drawing.Size(336, 150);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);

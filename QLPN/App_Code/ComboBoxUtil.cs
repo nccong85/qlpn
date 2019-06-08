@@ -2,6 +2,7 @@
 using CommonLib;
 using CommonLib.Model.DTO;
 using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -35,9 +36,9 @@ namespace QLPN.App_Code
             cmb.SelectedText = DEFAULT_ITEM;
         }
 
-        public static void SetDanhSachBienPhapKiLuat(Entities dbcontext, ComboBox cmb)
+        public static void SetDanhSachBienPhapPhapLuat(Entities dbcontext, ComboBox cmb)
         {
-            List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_BIEN_PHAP_KI_LUAT);
+            List<ListItemEx> list = GetCodeListExByCategoryId(dbcontext, CommonConst.CodeMasterCategoryId.PHAN_LOAI_BIEN_PHAP_PHAP_LUAT);
             SettingComboBox(cmb, list);
             cmb.SelectedItem = null;
             cmb.SelectedText = DEFAULT_ITEM;
@@ -134,6 +135,60 @@ namespace QLPN.App_Code
             cmb.DisplayMember = "Text";
         }
 
+        public static void SetAutoFilter(ComboBox cmb, List<ListItemEx> dataSource)
+        {
+            string filter_param = cmb.Text;
+
+            List<ListItemEx> filteredItems = dataSource.FindAll(x => x.ToLower().Contains(filter_param.ToLower()));
+
+            cmb.DataSource = filteredItems;
+
+            if (String.IsNullOrWhiteSpace(filter_param))
+            {
+                cmb.DataSource = dataSource;
+            }
+            cmb.DroppedDown = true;
+
+            // this will ensure that the drop down is as long as the list
+            cmb.IntegralHeight = true;
+
+            // remove automatically selected first item
+            cmb.SelectedIndex = -1;
+
+            cmb.Text = filter_param;
+
+            // set the position of the cursor
+            cmb.SelectionStart = filter_param.Length;
+            cmb.SelectionLength = 0;
+        }
+
+        public static void SetAutoFilter(ComboBox cmb, List<ListItem> dataSource)
+        {
+            string filter_param = cmb.Text;
+
+            List<ListItem> filteredItems = dataSource.FindAll(x => x.ToLower().Contains(filter_param.ToLower()));
+
+            cmb.DataSource = filteredItems;
+
+            if (String.IsNullOrWhiteSpace(filter_param))
+            {
+                cmb.DataSource = dataSource;
+            }
+            cmb.DroppedDown = true;
+
+            // this will ensure that the drop down is as long as the list
+            cmb.IntegralHeight = true;
+
+            // remove automatically selected first item
+            cmb.SelectedIndex = -1;
+
+            cmb.Text = filter_param;
+
+            // set the position of the cursor
+            cmb.SelectionStart = filter_param.Length;
+            cmb.SelectionLength = 0;
+        }
+
         private static List<ListItemEx> GetCodeListExByCategoryId(Entities dbcontext, string categoryId)
         {
             CodeMasterRepository codeMasterRepository = new CodeMasterRepository(dbcontext);
@@ -157,21 +212,6 @@ namespace QLPN.App_Code
             cmb.DataSource = list;
             cmb.ValueMember = "Value";
             cmb.DisplayMember = "Text";
-        }
-
-        private class ComboBoxItem
-        {
-            private string code;
-            private string value;
-
-            public ComboBoxItem(string code, string value)
-            {
-                Code = code;
-                Value = value;
-            }
-
-            public string Code { get => code; set => code = value; }
-            public string Value { get => value; set => this.value = value; }
         }
     }
 }
